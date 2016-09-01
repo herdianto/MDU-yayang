@@ -1,0 +1,213 @@
+%PDF-1.3
+1 0 obj
+<</Title (Demo clsPDFCreator)/Author (eLLeMMe)/Creator  (clsPDFCreator FREE Version)/Producer (© 2003-2005 eLLeMMe)/CreationDate (D:20160831090904+01'00')>>
+endobj
+2 0 obj
+<</Type /Catalog/Pages 3 0 R/PageLayout /OneColumn/PageMode /UseNone/Lang (it) /ViewerPreferences << /HideToolbar false /DisplayDocTitle true /HideWindowUI false >>>>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /TrueType/Name /Fnt1/BaseFont /TimesNewRoman/FirstChar 32/LastChar 255/FontDescriptor 6 0 R/Encoding /WinAnsiEncoding/Widths [
+250 333 408 500 500 833 778 180 333 333 500 564 250 333 250 278 
+500 500 500 500 500 500 500 500 500 500 278 278 564 564 564 444 
+921 722 667 667 722 611 556 722 722 333 389 722 611 889 722 722 
+556 722 667 556 611 722 722 944 722 722 611 333 278 333 469 500 
+333 444 500 444 500 444 333 500 500 278 278 500 278 778 500 500 
+500 500 333 389 278 500 500 722 500 500 444 480 200 480 541 778 
+500 778 333 500 444 1000 500 500 333 1000 556 333 889 778 611 778 
+778 333 333 444 444 350 500 1000 333 980 389 333 722 778 444 722 
+250 333 500 500 500 500 200 500 333 760 276 500 564 333 760 500 
+400 549 300 300 333 576 453 250 333 300 310 500 750 750 750 444 
+722 722 722 722 722 722 889 667 611 611 611 611 333 333 333 333 
+722 722 722 722 722 722 722 564 722 722 722 722 722 722 556 500 
+444 444 444 444 444 444 667 444 444 444 444 444 278 278 278 278 
+500 500 500 500 500 500 500 549 500 500 500 500 500 500 500 500 
+] >>
+endobj
+6 0 obj
+<</Type /FontDescriptor/FontName /TimesNewRoman/Flags 34 /FontBBox [-250 -216 1200 1000] /MissingWidth 333 /StemV 73 /StemH 73 /ItalicAngle 0 /CapHeight 891 /XHeight 446 /Ascent 891 /Descent -216 /Leading 149 /MaxWidth 1000 /AvgWidth 401>>
+endobj
+7 0 obj
+<< /Type /Font /Subtype /TrueType/Name /Fnt2/BaseFont /Arial,Italic/FirstChar 32/LastChar 255/FontDescriptor 8 0 R/Encoding /WinAnsiEncoding/Widths [
+278 278 355 556 556 889 667 191 333 333 389 584 278 333 278 278 
+556 556 556 556 556 556 556 556 556 556 278 278 584 584 584 556 
+1015 667 667 722 722 667 611 778 722 278 500 667 556 833 722 778 
+667 778 722 667 611 722 667 944 667 667 611 278 278 278 469 556 
+333 556 556 500 556 556 278 556 556 222 222 500 222 833 556 556 
+556 556 333 500 278 556 500 722 500 500 500 334 260 334 584 750 
+556 750 222 556 333 1000 556 556 333 1000 667 333 1000 750 611 750 
+750 222 222 333 333 350 556 1000 333 1000 500 333 944 750 500 667 
+278 333 556 556 556 556 260 556 333 737 370 556 584 333 737 552 
+400 549 333 333 333 576 537 278 333 333 365 556 834 834 834 611 
+667 667 667 667 667 667 1000 722 667 667 667 667 278 278 278 278 
+722 722 778 778 778 778 778 584 778 722 722 722 722 667 667 611 
+556 556 556 556 556 556 889 500 556 556 556 556 278 278 278 278 
+556 556 556 556 556 556 556 549 611 556 556 556 556 500 556 500 
+] >>
+endobj
+8 0 obj
+<</Type /FontDescriptor/FontName /Arial,Italic/Flags 96 /FontBBox [-250 -212 1134 1000] /MissingWidth 259 /StemV 80 /StemH 80 /ItalicAngle -11 /CapHeight 905 /XHeight 453 /Ascent 905 /Descent -212 /Leading 150 /MaxWidth 945 /AvgWidth 441>>
+endobj
+9 0 obj
+<< /Type /Font /Subtype /TrueType/Name /Fnt3/BaseFont /CourierNew/FirstChar 32/LastChar 255/FontDescriptor 10 0 R/Encoding /WinAnsiEncoding/Widths [
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 
+] >>
+endobj
+10 0 obj
+<</Type /FontDescriptor/FontName /CourierNew/Flags 34 /FontBBox [-250 -300 720 1000] /MissingWidth 600 /StemV 109 /StemH 109 /ItalicAngle 0 /CapHeight 833 /XHeight 417 /Ascent 833 /Descent -300 /Leading 133 /MaxWidth 600 /AvgWidth 600>>
+endobj
+11 0 obj
+<< /Type /Font /Subtype /Type1 /Name /Fnt4 /BaseFont /CourierNew,BoldItalic /Encoding /WinAnsiEncoding >>
+endobj
+12 0 obj
+<</Type /XObject/Subtype /Form/FormType 1/Name /Item1/BBox [0 0 595.2 842]/Matrix [1 0 0 1 0 0]/Length 13 0 R >>stream
+0.941 g
+120 Tz
+BT
+/Fnt2 80 Tf
+0 1 -1 0 113.386 113.386 Tm
+(Test Watermark) Tj
+ET
+0 g
+endstream
+endobj
+13 0 obj
+93
+endobj
+14 0 obj
+<</Type /Page/Parent 3 0 R/Contents 15 0 R>>
+endobj
+15 0 obj
+<< /Length 16 0 R >>stream
+/Item1 Do
+/Footers Do
+BT
+/Fnt1 48 Tf
+214.118 765.354 Td
+(ini Judul) Tj
+ET
+100 Tz
+BT
+/Fnt2 24 Tf
+28.346 708.661 Td
+(left) Tj
+ET
+BT
+/Fnt2 24 Tf
+113.386 708.661 Td
+(left 2) Tj
+ET
+BT
+/Fnt2 12 Tf
+2.835 368.504 Td
+(creating new line with logic0) Tj
+ET
+BT
+/Fnt2 12 Tf
+2.835 396.85 Td
+(creating new line with logic1) Tj
+ET
+BT
+/Fnt2 12 Tf
+2.835 425.197 Td
+(creating new line with logic2) Tj
+ET
+BT
+/Fnt2 12 Tf
+2.835 453.543 Td
+(creating new line with logic3) Tj
+ET
+BT
+/Fnt2 12 Tf
+2.835 481.89 Td
+(creating new line with logic4) Tj
+ET
+BT
+/Fnt2 12 Tf
+2.835 510.236 Td
+(creating new line with logic5) Tj
+ET
+BT
+/Fnt2 12 Tf
+2.835 538.583 Td
+(creating new line with logic6) Tj
+ET
+BT
+/Fnt2 12 Tf
+2.835 566.929 Td
+(creating new line with logic7) Tj
+ET
+BT
+/Fnt2 12 Tf
+2.835 595.276 Td
+(creating new line with logic8) Tj
+ET
+BT
+/Fnt2 12 Tf
+2.835 623.622 Td
+(creating new line with logic9) Tj
+ET
+BT
+/Fnt2 12 Tf
+2.835 651.969 Td
+(creating new line with logic10) Tj
+ET
+endstream
+endobj
+16 0 obj
+1018
+endobj
+17 0 obj
+<</Type /XObject/Subtype /Form/FormType 1/Name /Footers/BBox [0 0 595.2 842]/Matrix [1 0 0 1 0 0]/Length 18 0 R >>stream
+BT
+/Fnt1 12 Tf
+518.521 42.52 Td
+(footer test) Tj
+ET
+endstream
+endobj
+18 0 obj
+57
+endobj
+4 0 obj
+<</Font <</Fnt1 5 0 R /Fnt2 7 0 R /Fnt3 9 0 R /Fnt4 11 0 R >>/ProcSet [/PDF /Text ]/XObject <</Item1 12 0 R /Footers 17 0 R >>>>
+endobj
+3 0 obj
+<</Type /Pages/Count 1/MediaBox [0 0 595.2 842]/CropBox [0 0 595.2 842]/Kids [14 0 R  ]/Resources 4 0 R>>
+endobj
+xref
+0 19
+0000000000 65535 f
+0000000010 00000 n
+0000000191 00000 n
+0000006458 00000 n
+0000006298 00000 n
+0000000383 00000 n
+0000001493 00000 n
+0000001755 00000 n
+0000002868 00000 n
+0000003130 00000 n
+0000004235 00000 n
+0000004495 00000 n
+0000004620 00000 n
+0000004870 00000 n
+0000004892 00000 n
+0000004960 00000 n
+0000006036 00000 n
+0000006060 00000 n
+0000006276 00000 n
+trailer<</Size 18/Info 1 0 R/Root 2 0 R>>
+startxref6590
+%%EOF
