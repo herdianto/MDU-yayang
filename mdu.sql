@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 05, 2016 at 08:55 AM
+-- Generation Time: Sep 05, 2016 at 01:54 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.5.37
 
@@ -37,8 +37,9 @@ CREATE TABLE `material` (
 --
 
 INSERT INTO `material` (`Code`, `Name`, `Unit`) VALUES
-('00005', 'trafo', 'unit'),
-('00006', 'kabel twist', 'unit');
+('00005', 'trafo', 'buah'),
+('00006', 'kabel twist', 'meter'),
+('007', 'Hmmmm', 'hmmmm');
 
 -- --------------------------------------------------------
 
@@ -56,8 +57,31 @@ CREATE TABLE `transaction` (
   `Tug9No` varchar(30) DEFAULT NULL,
   `Condition` enum('1','2','3') NOT NULL,
   `GoodIssueNo` varchar(30) DEFAULT NULL,
-  `PKLGNo` varchar(30) DEFAULT NULL
+  `PKLGNo` varchar(30) DEFAULT NULL,
+  `Remark` varchar(30) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `transaction`
+--
+
+INSERT INTO `transaction` (`ID`, `userID`, `Code`, `Date`, `Qty`, `Tug10No`, `Tug9No`, `Condition`, `GoodIssueNo`, `PKLGNo`, `Remark`) VALUES
+(1, '', '00006', '2016-09-14', 2323, '123123', NULL, '2', NULL, 'asda', 'asdasd'),
+(2, '', '00006', '2016-09-14', 2323, '123123', NULL, '2', NULL, 'asda', 'asdasd'),
+(3, 'yayang', '00006', '2016-09-14', 10, 'asasad', NULL, '2', NULL, 'asdasd', 'asdasdasdasdas'),
+(4, 'yayang', '00005', '2016-09-14', 10, 'asasad', NULL, '2', NULL, 'asdasd', 'asdasdasdasdas'),
+(5, 'yayang', '007', '2016-09-14', 44, 'fsgsgs', NULL, '2', NULL, 'ffdgdfg', 'dgdfgdffdg'),
+(6, '', '007', '2016-09-14', 123, 'qweqe', NULL, '1', '1221', NULL, NULL),
+(7, '', '00006', '2016-09-14', 12, 'asd', NULL, '1', 'adasasad', NULL, NULL),
+(8, '', '00006', '2016-09-14', 22, 'asdad', NULL, '1', '2312', NULL, NULL),
+(9, '', '007', '2016-09-14', 1, 'qweqw', NULL, '1', 'qwwe', NULL, NULL),
+(10, '', '00006', '2016-09-14', 221, 'asdasd', NULL, '1', 'lalala', NULL, NULL),
+(11, '', '00006', '2016-09-14', 221, 'asdasd', NULL, '3', NULL, '', ''),
+(12, '', '00006', '2016-09-14', 221, 'asdasd', NULL, '3', NULL, '', ''),
+(13, '', '00006', '2016-09-14', 134, '12123', NULL, '2', NULL, 'werwer', 'werwerwerwer'),
+(14, 'yayang', '00006', '2016-09-14', 12, 'lalalal', NULL, '2', NULL, 'hahah', 'ahahahha'),
+(15, 'yayang', '007', '2016-09-14', 12, 'test', NULL, '3', NULL, 'aaa', 'aaaaaaaaaa'),
+(16, 'yayang', '00006', '2016-09-14', 45, '2aasd', NULL, '2', NULL, 'PK vsdfsdf', '4234234234sdsdsdf');
 
 -- --------------------------------------------------------
 
@@ -112,16 +136,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-
-ALTER TABLE transaction
-ADD FOREIGN KEY (userid)
-REFERENCES user (userid)
-
-ALTER TABLE transaction
-ADD FOREIGN KEY (code)
-REFERENCES material (code)
