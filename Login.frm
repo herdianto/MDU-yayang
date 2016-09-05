@@ -46,7 +46,7 @@ Begin VB.Form Login
    Begin VB.Image Image1 
       Height          =   1335
       Left            =   600
-      Picture         =   "Form1.frx":0000
+      Picture         =   "Login.frx":0000
       Stretch         =   -1  'True
       Top             =   120
       Width           =   1155
@@ -104,7 +104,46 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Private Sub Command1_Click()
-Unload Me
-MainMenu.Show
+    Call login(Text1.Text, Text2.Text)
+End Sub
+
+Private Sub login(username As String, password As String)
+Dim DBCon As ADODB.Connection
+    Dim Cmd As ADODB.Command
+    Dim Rs As ADODB.Recordset
+    Dim accessRight As String
+
+    accessRight = -1
+    'Create a connection to the database
+    Set DBCon = New ADODB.Connection
+    DBCon.CursorLocation = adUseClient
+    'This is a connectionstring to a local MySQL server
+    DBCon.Open "Driver={MySQL ODBC 3.51 Driver};Server=localhost;Database=MDU;User=root;Password=;Option=3;"
+
+    'Create a new command that will execute the query
+    Set Cmd = New ADODB.Command
+    Cmd.ActiveConnection = DBCon
+    Cmd.CommandType = adCmdText
+    'This is your actual MySQL query
+    Cmd.CommandText = "SELECT accessRight from user where userID = '" & username & "' and password = '" & password & "'"
+
+    'Executes the query-command and puts the result into Rs (recordset)
+    Set Rs = Cmd.Execute
+    If Not Rs.EOF Then
+        accessRight = Rs("accessRight")
+    End If
+    
+    If accessRight = 1 Then
+        MainMenu.Show
+        TransaksiMasuk.username = Text1.Text
+        Unload Me
+    ElseIf accessRight = 0 Then
+        AdminPage.Show
+        Unload Me
+    Else
+        MsgBox "Invalid username / password", vbOKOnly, "Invalid credential"
+        
+    End If
+    
 End Sub
 

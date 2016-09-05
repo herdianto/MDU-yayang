@@ -1,16 +1,38 @@
 VERSION 5.00
-Begin VB.Form Form1 
+Begin VB.Form Old2 
    Caption         =   "Form1"
-   ClientHeight    =   3030
+   ClientHeight    =   4395
    ClientLeft      =   120
    ClientTop       =   450
-   ClientWidth     =   4560
+   ClientWidth     =   4785
    LinkTopic       =   "Form1"
-   ScaleHeight     =   3030
-   ScaleWidth      =   4560
+   ScaleHeight     =   4395
+   ScaleWidth      =   4785
    StartUpPosition =   3  'Windows Default
+   Begin VB.CommandButton Command1 
+      Caption         =   "Add"
+      Height          =   375
+      Left            =   2520
+      TabIndex        =   2
+      Top             =   360
+      Width           =   1215
+   End
+   Begin VB.TextBox Text2 
+      Height          =   375
+      Left            =   120
+      TabIndex        =   1
+      Top             =   840
+      Width           =   2175
+   End
+   Begin VB.TextBox Text1 
+      Height          =   405
+      Left            =   120
+      TabIndex        =   0
+      Top             =   360
+      Width           =   2175
+   End
 End
-Attribute VB_Name = "Form1"
+Attribute VB_Name = "Old2"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
@@ -32,7 +54,7 @@ End Sub
 
 Private Sub ctlDynamic_ObjectEvent(Info As EventInfo)
    ' test for the click event of the TreeView
-   If Info.Name = "Click" Then
+   If Info.name = "Click" Then
       ctlText.Text = "You clicked " & ctlDynamic.object.SelectedItem.Text
    End If
 End Sub

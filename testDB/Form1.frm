@@ -172,7 +172,7 @@ Private Sub DataGrid1_Click()
     'numberofRow = DataGrid1.Row
     'numberofCol = DataGrid1.Col
     'Text4.Text = CStr(numberofRow) & "  " & CStr(numberofCol)
-    Text4.Text = DataGrid1.Columns(1).Value
+    'Text4.Text = DataGrid1.Columns(1).Value
 End Sub
 
 Private Sub Form_Load()

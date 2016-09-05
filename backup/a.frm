@@ -1,6 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
-Begin VB.Form Form2 
+Begin VB.Form Old 
    Caption         =   "Form2"
    ClientHeight    =   8910
    ClientLeft      =   60
@@ -109,37 +108,17 @@ Begin VB.Form Form2
          Width           =   1815
       End
    End
-   Begin MSComctlLib.TabStrip TabStrip1 
+   Begin VB.PictureBox TabStrip1 
       Height          =   8895
       Left            =   0
+      ScaleHeight     =   8835
+      ScaleWidth      =   10155
       TabIndex        =   0
       Top             =   0
       Width           =   10215
-      _ExtentX        =   18018
-      _ExtentY        =   15690
-      _Version        =   393216
-      BeginProperty Tabs {1EFB6598-857C-11D1-B16A-00C0F0283628} 
-         NumTabs         =   4
-         BeginProperty Tab1 {1EFB659A-857C-11D1-B16A-00C0F0283628} 
-            Caption         =   "Transaksi"
-            ImageVarType    =   2
-         EndProperty
-         BeginProperty Tab2 {1EFB659A-857C-11D1-B16A-00C0F0283628} 
-            Caption         =   "Barang Masuk"
-            ImageVarType    =   2
-         EndProperty
-         BeginProperty Tab3 {1EFB659A-857C-11D1-B16A-00C0F0283628} 
-            Caption         =   "Barang Keluar"
-            ImageVarType    =   2
-         EndProperty
-         BeginProperty Tab4 {1EFB659A-857C-11D1-B16A-00C0F0283628} 
-            Caption         =   "Laporan"
-            ImageVarType    =   2
-         EndProperty
-      EndProperty
    End
 End
-Attribute VB_Name = "Form2"
+Attribute VB_Name = "Old"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
