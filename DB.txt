@@ -1,0 +1,88 @@
+-- phpMyAdmin SQL Dump
+-- version 3.1.3.1
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Sep 05, 2016 at 10:22 AM
+-- Server version: 5.1.33
+-- PHP Version: 5.2.9
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- Database: `MDU`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `material`
+--
+
+CREATE TABLE IF NOT EXISTS `material` (
+  `Code` varchar(10) NOT NULL,
+  `Name` varchar(30) NOT NULL,
+  `Unit` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`Code`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `material`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transaction`
+--
+
+CREATE TABLE IF NOT EXISTS `transaction` (
+  `ID` int(10) NOT NULL AUTO_INCREMENT,
+  `userID` varchar(10) NOT NULL,
+  `Code` varchar(10) NOT NULL,
+  `Name` varchar(30) NOT NULL,
+  `Qty` int(5) NOT NULL,
+  `NormalizationCode` varchar(30) NOT NULL,
+  `Tug10No` varchar(30) DEFAULT NULL,
+  `Tug9No` varchar(30) DEFAULT NULL,
+  `Condition` enum('1','2','3') NOT NULL,
+  `GoodIssueNo` varchar(30) DEFAULT NULL,
+  `PKLGNo` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- RELATIONS FOR TABLE `transaction`:
+--   `Code`
+--       `material` -> `Code`
+--   `userID`
+--       `user` -> `UserID`
+--
+
+--
+-- Dumping data for table `transaction`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE IF NOT EXISTS `user` (
+  `UserID` varchar(10) NOT NULL,
+  `Password` varchar(32) NOT NULL,
+  `LastLogin` datetime DEFAULT NULL,
+  `AccessRight` enum('0','1','2') NOT NULL,
+  PRIMARY KEY (`UserID`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`UserID`, `Password`, `LastLogin`, `AccessRight`) VALUES
+('yayang', 'yayang', NULL, '1'),
+('anngi', 'anggi', NULL, '0');
