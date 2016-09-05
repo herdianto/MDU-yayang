@@ -414,7 +414,7 @@ Public Sub SetTextRenderingMode(W As Single)
 End Sub
 
 '
-Public Sub DrawText(x As Single, y As Single, _
+Public Sub DrawText(X As Single, Y As Single, _
                     strTemp As String, _
                     FontName As String, Fontsize As Single, _
                     Optional Align As pdfTextAlign = pdfAlignLeft, _
@@ -431,10 +431,10 @@ Public Sub DrawText(x As Single, y As Single, _
     
     Case pdfAlignRight
       l = Length(strTemp, FontName, Fontsize)
-      x = x - l
+      X = X - l
     Case pdfCenter
       l = Length(strTemp, FontName, Fontsize)
-      x = x - l / 2
+      X = X - l / 2
   End Select
   
   WriteObj "BT"
@@ -446,9 +446,9 @@ Public Sub DrawText(x As Single, y As Single, _
     cTeta = Cos(C * Rotate)
     WriteObj ToStr(cTeta) & " " & ToStr(sTeta) & " " & _
              ToStr(-sTeta) & " " & ToStr(cTeta) & _
-             " " & ToStr(ToSpace(x)) & " " & ToStr(ToSpace(y)) & " Tm"
+             " " & ToStr(ToSpace(X)) & " " & ToStr(ToSpace(Y)) & " Tm"
   Else
-    WriteObj ToStr(ToSpace(x)) & " " & ToStr(ToSpace(y)) & " Td"
+    WriteObj ToStr(ToSpace(X)) & " " & ToStr(ToSpace(Y)) & " Td"
   End If
   
   WriteObj "(" & ToPdfStr(strTemp) & ") Tj"
@@ -517,14 +517,14 @@ Public Sub SetMiterLimit(W As Single)
 End Sub
 
 '
-Public Sub MoveTo(x As Single, y As Single)
-  WriteObj ToStr(ToSpace(x)) & " " & ToStr(ToSpace(y)) & " m"
+Public Sub MoveTo(X As Single, Y As Single)
+  WriteObj ToStr(ToSpace(X)) & " " & ToStr(ToSpace(Y)) & " m"
 End Sub
 
 '
-Public Sub LineTo(x As Single, y As Single, _
+Public Sub LineTo(X As Single, Y As Single, _
                   Optional Options As pdfPathOptions = pdfPathOptions.Stroked)
-  WriteObj ToStr(ToSpace(x)) & " " & ToStr(ToSpace(y)) & " l"
+  WriteObj ToStr(ToSpace(X)) & " " & ToStr(ToSpace(Y)) & " l"
   Call Path(Options)
 End Sub
 
@@ -544,7 +544,7 @@ Private Sub Path(Optional Options As pdfPathOptions = pdfPathOptions.Nil)
 End Sub
 
 '
-Public Sub Rectangle(x As Single, y As Single, _
+Public Sub Rectangle(X As Single, Y As Single, _
                      xdim As Single, ydim As Single, _
                      Optional Options As pdfPathOptions = pdfPathOptions.Stroked, _
                      Optional Ray As Single)
@@ -555,17 +555,17 @@ Public Sub Rectangle(x As Single, y As Single, _
     If Ray > (xdim / 2) Then Ray = xdim / 2
     If Ray > (ydim / 2) Then Ray = ydim / 2
     sR = 0.55 * Ray
-    MoveTo x + Ray, y
-    LineTo x + xdim - Ray, y, Nil
-    Curve (x + xdim - Ray + sR), y, x + xdim, y + Ray - sR, x + xdim, y + Ray, Nil
-    LineTo x + xdim, y + ydim - Ray, Nil
-    Curve x + xdim, y + ydim - Ray + sR, x + xdim - Ray + sR, y + ydim, x + xdim - Ray, y + ydim, Nil
-    LineTo x + Ray, y + ydim, Nil
-    Curve x + Ray - sR, y + ydim, x, y + ydim - Ray + sR, x, y + ydim - Ray, Nil
-    LineTo x, y + Ray, Nil
-    Curve x, y + Ray - sR, x + Ray - sR, y, x + Ray, y, Nil
+    MoveTo X + Ray, Y
+    LineTo X + xdim - Ray, Y, Nil
+    Curve (X + xdim - Ray + sR), Y, X + xdim, Y + Ray - sR, X + xdim, Y + Ray, Nil
+    LineTo X + xdim, Y + ydim - Ray, Nil
+    Curve X + xdim, Y + ydim - Ray + sR, X + xdim - Ray + sR, Y + ydim, X + xdim - Ray, Y + ydim, Nil
+    LineTo X + Ray, Y + ydim, Nil
+    Curve X + Ray - sR, Y + ydim, X, Y + ydim - Ray + sR, X, Y + ydim - Ray, Nil
+    LineTo X, Y + Ray, Nil
+    Curve X, Y + Ray - sR, X + Ray - sR, Y, X + Ray, Y, Nil
   Else
-    WriteObj ToStr(ToSpace(x)) & " " & ToStr(ToSpace(y)) & " " & _
+    WriteObj ToStr(ToSpace(X)) & " " & ToStr(ToSpace(Y)) & " " & _
              ToStr(ToSpace(xdim)) & " " & ToStr(ToSpace(ydim)) & " re"
   End If
   
@@ -585,20 +585,20 @@ Public Sub Curve(x1 As Single, y1 As Single, _
 End Sub
 
 '
-Public Sub DrawCircle(x As Single, y As Single, _
+Public Sub DrawCircle(X As Single, Y As Single, _
                       Ray As Single, _
                       Optional Options As pdfPathOptions = pdfPathOptions.Stroked)
   
-  MoveTo x, y - Ray
-  Curve x + 0.55 * Ray, y - Ray, x + Ray, y - 0.55 * Ray, x + Ray, y, Nil
-  Curve x + Ray, y + 0.55 * Ray, x + 0.55 * Ray, y + Ray, x, y + Ray, Nil
-  Curve x - 0.55 * Ray, y + Ray, x - Ray, y + 0.55 * Ray, x - Ray, y, Nil
-  Curve x - Ray, y - 0.55 * Ray, x - 0.55 * Ray, y - Ray, x, y - Ray, Nil
+  MoveTo X, Y - Ray
+  Curve X + 0.55 * Ray, Y - Ray, X + Ray, Y - 0.55 * Ray, X + Ray, Y, Nil
+  Curve X + Ray, Y + 0.55 * Ray, X + 0.55 * Ray, Y + Ray, X, Y + Ray, Nil
+  Curve X - 0.55 * Ray, Y + Ray, X - Ray, Y + 0.55 * Ray, X - Ray, Y, Nil
+  Curve X - Ray, Y - 0.55 * Ray, X - 0.55 * Ray, Y - Ray, X, Y - Ray, Nil
   Call Path(Options)
 End Sub
 
 '
-Public Sub Arc(x As Single, y As Single, _
+Public Sub Arc(X As Single, Y As Single, _
                Ray As Single, _
                Optional StartAngle As Single = 0, _
                Optional EndAngle As Single = 360, _
@@ -618,7 +618,7 @@ Public Sub Arc(x As Single, y As Single, _
   Dim y1, Y2 As Single
   
   WriteObj "n"
-  MoveTo x, y
+  MoveTo X, Y
   If (Options And pdfPathOptions.Filled) <> 0 Then Pie = True
   PI = 3.141592
   C = PI / 180
@@ -632,11 +632,11 @@ Public Sub Arc(x As Single, y As Single, _
     
     x1 = X2 * cTeta + Y2 * sTeta
     y1 = -X2 * sTeta + Y2 * cTeta
-    If (i = StartAngle) And (Not Pie) Then MoveTo x + x1, y + y1
-    LineTo x + x1, y + y1, Nil
+    If (i = StartAngle) And (Not Pie) Then MoveTo X + x1, Y + y1
+    LineTo X + x1, Y + y1, Nil
   Next
     
-  If Pie Then LineTo x, y, Nil
+  If Pie Then LineTo X, Y, Nil
   Call Path(Options)
 End Sub
 
@@ -672,7 +672,7 @@ Public Sub LoadImgFromArray(Name As String, _
   Dim sColor As String
   Dim lngGray As Long
   Dim i As Integer
-  Dim y As Long
+  Dim Y As Long
   
   Dim strDevice As String
   Dim BPP As Byte

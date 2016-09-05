@@ -1,10 +1,10 @@
 VERSION 5.00
-Begin VB.Form Form1 
+Begin VB.Form Login 
    BackColor       =   &H00E0E0E0&
    Caption         =   "Form1"
    ClientHeight    =   4950
-   ClientLeft      =   60
-   ClientTop       =   450
+   ClientLeft      =   225
+   ClientTop       =   555
    ClientWidth     =   7620
    LinkTopic       =   "Form1"
    ScaleHeight     =   4950
@@ -12,17 +12,17 @@ Begin VB.Form Form1
    StartUpPosition =   3  'Windows Default
    Begin VB.TextBox Text1 
       Height          =   375
-      Left            =   2160
+      Left            =   2520
       TabIndex        =   4
-      Top             =   2400
+      Top             =   2040
       Width           =   2535
    End
    Begin VB.CommandButton Command1 
       Caption         =   "Login"
       Height          =   375
-      Left            =   3840
+      Left            =   4200
       TabIndex        =   3
-      Top             =   3600
+      Top             =   3240
       Width           =   735
    End
    Begin VB.TextBox Text2 
@@ -37,10 +37,10 @@ Begin VB.Form Form1
       EndProperty
       Height          =   375
       IMEMode         =   3  'DISABLE
-      Left            =   2160
+      Left            =   2520
       PasswordChar    =   "*"
       TabIndex        =   2
-      Top             =   3000
+      Top             =   2640
       Width           =   2535
    End
    Begin VB.Image Image1 
@@ -55,18 +55,18 @@ Begin VB.Form Form1
       BackColor       =   &H00E0E0E0&
       Caption         =   "Password"
       Height          =   255
-      Left            =   720
+      Left            =   1080
       TabIndex        =   6
-      Top             =   3000
+      Top             =   2640
       Width           =   1095
    End
    Begin VB.Label Label3 
       BackColor       =   &H00E0E0E0&
       Caption         =   "Username"
       Height          =   255
-      Left            =   720
+      Left            =   1080
       TabIndex        =   5
-      Top             =   2520
+      Top             =   2160
       Width           =   1095
    End
    Begin VB.Label Label2 
@@ -98,15 +98,13 @@ Begin VB.Form Form1
       Width           =   5415
    End
 End
-Attribute VB_Name = "Form1"
+Attribute VB_Name = "Login"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Private Sub Command1_Click()
-
-Form2.Show
-Form1.Hide
 Unload Me
-
+MainMenu.Show
 End Sub
+
