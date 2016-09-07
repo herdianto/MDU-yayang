@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "msdatgrd.ocx"
+Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
 Begin VB.Form TransaksiKeluar 
    Caption         =   "Transaksi Keluar"
    ClientHeight    =   7560
@@ -242,13 +242,13 @@ Attribute ctlCommand.VB_VarHelpID = -1
 Dim WithEvents CtlLabel As VB.Label
 Attribute CtlLabel.VB_VarHelpID = -1
 Dim count1 As Integer
-Dim rst As ADODB.recordSet
+Dim rst As ADODB.Recordset
 Public username As String
 
 Private Sub getData(Code As String)
     Dim DBCon As ADODB.Connection
     Dim Cmd As ADODB.Command
-    Dim Rs As ADODB.recordSet
+    Dim Rs As ADODB.Recordset
 
     'Create a connection to the database
     Set DBCon = New ADODB.Connection
@@ -316,7 +316,7 @@ End Sub
 Private Sub saveData()
     Dim DBCon As ADODB.Connection
     Dim Cmd As ADODB.Command
-    Dim Rs As ADODB.recordSet
+    Dim Rs As ADODB.Recordset
     Dim condition As Integer
 
     'Create a connection to the database
@@ -353,7 +353,7 @@ Private Sub saveData()
     MsgBox "data saved", vbInformation, "Success"
     Call getData(Text2.Text)
     
-    Set rst = New ADODB.recordSet
+    Set rst = New ADODB.Recordset
 rst.CursorLocation = adUseClient
    
 ' Add columns to the Recordset
@@ -382,7 +382,7 @@ DataGrid2.Columns(2).Caption = "Balance"
 
 
 
-Set rst = New ADODB.recordSet
+Set rst = New ADODB.Recordset
 rst.CursorLocation = adUseClient
    
 ' Add columns to the Recordset
@@ -398,7 +398,7 @@ End Sub
 
 Private Sub Main_Click()
     Unload Me
-    mainMenu.Show
+    MainMenu.Show
 End Sub
 
 Private Sub SignOut_Click()

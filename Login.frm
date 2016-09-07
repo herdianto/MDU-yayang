@@ -110,7 +110,7 @@ End Sub
 Private Sub login(username As String, password As String)
 Dim DBCon As ADODB.Connection
     Dim Cmd As ADODB.Command
-    Dim Rs As ADODB.recordSet
+    Dim Rs As ADODB.Recordset
     Dim accessRight As String
 
     accessRight = -1
@@ -134,7 +134,7 @@ Dim DBCon As ADODB.Connection
     End If
     
     If accessRight = 1 Then
-        mainMenu.Show
+        MainMenu.Show
         TransaksiMasuk.username = Text1.Text
         TransaksiKeluar.username = Text1.Text
         Unload Me

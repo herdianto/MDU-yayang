@@ -246,7 +246,7 @@ Public username As String
 Private Sub selectMaterialName(Code As String, parameter As String)
     Dim DBCon As ADODB.Connection
     Dim Cmd As ADODB.Command
-    Dim Rs As ADODB.recordSet
+    Dim Rs As ADODB.Recordset
 
     'Create a connection to the database
     Set DBCon = New ADODB.Connection
@@ -293,7 +293,7 @@ End Sub
 Private Sub Command1_Click()
     Dim DBCon As ADODB.Connection
     Dim Cmd As ADODB.Command
-    Dim Rs As ADODB.recordSet
+    Dim Rs As ADODB.Recordset
     Dim condition As Integer
 
     'Create a connection to the database
@@ -449,7 +449,7 @@ End Sub
 Private Sub getMaterialCode()
     Dim DBCon As ADODB.Connection
     Dim Cmd As ADODB.Command
-    Dim Rs As ADODB.recordSet
+    Dim Rs As ADODB.Recordset
 
     'Create a connection to the database
     Set DBCon = New ADODB.Connection
@@ -485,7 +485,7 @@ End Sub
 
 Private Sub Main_Click()
 Unload Me
-mainMenu.Show
+MainMenu.Show
 End Sub
 
 Private Sub Qty_Change()

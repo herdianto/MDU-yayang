@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "msdatgrd.ocx"
+Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
 Begin VB.Form TransaksiMasukRpt 
    Caption         =   "Laporan Transaksi Masuk"
    ClientHeight    =   7110
@@ -11,18 +11,50 @@ Begin VB.Form TransaksiMasukRpt
    ScaleWidth      =   13485
    StartUpPosition =   3  'Windows Default
    Begin VB.CommandButton Command1 
-      Caption         =   "Command1"
-      Height          =   495
+      Caption         =   "Cetak"
+      Height          =   375
+      Left            =   10560
+      TabIndex        =   8
+      Top             =   5040
+      Width           =   1215
+   End
+   Begin VB.ComboBox Combo2 
+      Height          =   315
+      Left            =   1800
+      TabIndex        =   6
+      Text            =   "Month"
+      Top             =   360
+      Width           =   1335
+   End
+   Begin VB.ComboBox Combo1 
+      Height          =   315
       Left            =   360
-      TabIndex        =   1
+      TabIndex        =   5
+      Text            =   "Year"
+      Top             =   360
+      Width           =   1335
+   End
+   Begin VB.OptionButton Option2 
+      Caption         =   "Descending"
+      Height          =   255
+      Left            =   6840
+      TabIndex        =   2
       Top             =   840
+      Width           =   1215
+   End
+   Begin VB.OptionButton Option1 
+      Caption         =   "Ascending"
+      Height          =   195
+      Left            =   6840
+      TabIndex        =   1
+      Top             =   480
       Width           =   1215
    End
    Begin MSDataGridLib.DataGrid DataGrid1 
       Height          =   3135
       Left            =   360
       TabIndex        =   0
-      Top             =   1440
+      Top             =   1320
       Width           =   12375
       _ExtentX        =   21828
       _ExtentY        =   5530
@@ -83,6 +115,48 @@ Begin VB.Form TransaksiMasukRpt
          EndProperty
       EndProperty
    End
+   Begin VB.Label Label1 
+      Caption         =   "Label1"
+      Height          =   1335
+      Left            =   2160
+      TabIndex        =   7
+      Top             =   4920
+      Width           =   4935
+   End
+   Begin VB.Label Label3 
+      Caption         =   "Filter"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   375
+      Left            =   360
+      TabIndex        =   4
+      Top             =   0
+      Width           =   855
+   End
+   Begin VB.Label Label2 
+      Caption         =   "Sorting"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   375
+      Left            =   6840
+      TabIndex        =   3
+      Top             =   0
+      Width           =   855
+   End
    Begin VB.Menu Menu 
       Caption         =   "Menu"
       Begin VB.Menu SignOut 
@@ -106,9 +180,15 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Dim DBCon As ADODB.Connection
 Dim Cmd As ADODB.Command
-Dim Rs As ADODB.recordSet
+Dim Cmd2 As ADODB.Command
+Dim Rs As ADODB.Recordset
+Dim Rs2 As ADODB.Recordset
+Dim year As String
+Dim month As String
+Dim selectedRecred As String
+Dim sort As String
 
-Private Sub Command1_Click()
+Private Sub getAllData()
 Cmd.CommandText = _
     "SELECT t.code as normalisasi, m.name, date as tanggal, qty as jumlah, t.condition as kondisi, pklgno, Remark " _
     & "From material m, transaction t " _
@@ -122,8 +202,75 @@ Cmd.CommandText = _
     Set DataGrid1.DataSource = Rs
     
 End Sub
+
+Private Sub getSelectedData()
+Cmd.CommandText = _
+    "SELECT t.code as normalisasi, m.name, date as tanggal, qty as jumlah, t.condition as kondisi, pklgno, Remark " _
+    & "From material m, transaction t " _
+    & "Where t.condition <> 4 And t.Code = m.Code " _
+    & "and extract(year from date) like '%" & year & "%' " _
+    & "and extract(month from date) like '%" & month & "%' " _
+    
+    Label1.Caption = Cmd.CommandText
+    Label1.BackColor = vbRed
+    
+    'Executes the query-command and puts the result into Rs (recordset)
+    Set Rs = Cmd.Execute
+    'Loop through the results of your recordset until there are no more records
+
+    Set DataGrid1.DataSource = Rs
+    
+End Sub
+
+Private Sub Combo1_Click()
+    Call getMonth(Combo1.Text)
+    year = Combo1.Text
+    month = ""
+    getSelectedData
+End Sub
+
+Private Sub Combo2_Click()
+    month = Combo2.Text
+    getSelectedData
+End Sub
+
+Private Sub Command1_Click()
+    Cmd.CommandText = _
+    "SELECT t.code as normalisasi, m.name, date as tanggal, qty as jumlah, t.condition as kondisi, pklgno, Remark " _
+    & "From material m, transaction t " _
+    & "Where t.condition <> 4 And t.Code = m.Code " _
+    & "and extract(year from date) like '%" & year & "%' " _
+    & "and extract(month from date) like '%" & month & "%' " _
+    & selectedRecred & " " _
+    & sort
+    
+    Label1.Caption = Cmd.CommandText
+    Label1.BackColor = vbRed
+    
+    'Executes the query-command and puts the result into Rs (recordset)
+    Set Rs = Cmd.Execute
+    'Loop through the results of your recordset until there are no more records
+    Set DataGrid1.DataSource = Rs
+    
+    Cmd2.CommandText = "drop view if exists print_a"
+    Cmd2.Execute
+    Cmd.CommandText = "create view print_a as " + Cmd.CommandText
+    Cmd.Execute
+End Sub
+
 Private Sub DataGrid1_HeadClick(ByVal ColIndex As Integer)
-    Rs.Sort = DataGrid1.Columns(ColIndex).Caption + " Asc"
+If Option1.Value = True Then
+    Rs.sort = DataGrid1.Columns(ColIndex).Caption + " Asc"
+End If
+If Option2.Value = True Then
+    Rs.sort = DataGrid1.Columns(ColIndex).Caption + " Desc"
+End If
+selectedRecred = DataGrid1.Columns(ColIndex).Caption
+If selectedRecred = "name" Then
+    selectedRecred = "order by m." + selectedRecred
+Else
+    selectedRecred = "order by t." + selectedRecred
+End If
 End Sub
 
 Private Sub Form_Load()
@@ -137,6 +284,43 @@ Private Sub Form_Load()
     Set Cmd = New ADODB.Command
     Cmd.ActiveConnection = DBCon
     Cmd.CommandType = adCmdText
+    
+    Set Cmd2 = New ADODB.Command
+    Cmd2.ActiveConnection = DBCon
+    Cmd2.CommandType = adCmdText
+    
+    Call getAllData
+    Call getYear
+    Call getMonth(Combo1.Text)
+End Sub
+Private Sub getYear()
+    Cmd.CommandText = _
+    "select distinct(extract(year from date)) as year from transaction"
+    'Executes the query-command and puts the result into Rs (recordset)
+    Set Rs2 = Cmd.Execute
+    'Loop through the results of your recordset until there are no more records
+        Do While Not Rs2.EOF
+        'Put the value of field 'Name' into string variable 'Name'
+        Combo1.AddItem Rs2("year")
+        'Move to the next record in your resultset
+        Rs2.MoveNext
+    Loop
+End Sub
+
+Private Sub getMonth(year As String)
+    Cmd.CommandText = _
+    "select distinct(extract(month from date)) as month from transaction where extract(year from date) ='" & year & "'"
+    'Executes the query-command and puts the result into Rs (recordset)
+    Combo2.Clear
+    Combo2.Text = "Month"
+    Set Rs2 = Cmd.Execute
+    'Loop through the results of your recordset until there are no more records
+        Do While Not Rs2.EOF
+        'Put the value of field 'Name' into string variable 'Name'
+        Combo2.AddItem Rs2("month")
+        'Move to the next record in your resultset
+        Rs2.MoveNext
+    Loop
 End Sub
 
 Private Sub Form_Unload(Cancel As Integer)
@@ -152,7 +336,15 @@ End Sub
 
 Private Sub mainMen_Click()
     Unload Me
-    mainMenu.Show
+    MainMenu.Show
+End Sub
+
+Private Sub Option1_Click()
+    sort = "asc"
+End Sub
+
+Private Sub Option2_Click()
+    sort = "desc"
 End Sub
 
 Private Sub SignOut_Click()
