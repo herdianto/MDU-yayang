@@ -134,12 +134,15 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Private Sub Image1_Click()
-Me.Hide
 TransaksiMasuk.Show
 Unload Me
 End Sub
 Private Sub Image2_Click()
-Me.Hide
 TransaksiKeluar.Show
+Unload Me
+End Sub
+
+Private Sub Image4_Click()
+TransaksiMasukRpt.Show
 Unload Me
 End Sub

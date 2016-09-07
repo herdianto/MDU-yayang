@@ -1,15 +1,14 @@
 VERSION 5.00
-Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
+Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "msdatgrd.ocx"
 Begin VB.Form TransaksiKeluar 
    Caption         =   "Transaksi Keluar"
-   ClientHeight    =   6720
+   ClientHeight    =   7560
    ClientLeft      =   225
    ClientTop       =   855
-   ClientWidth     =   10575
+   ClientWidth     =   13635
    LinkTopic       =   "Form1"
-   ScaleHeight     =   6720
-   ScaleWidth      =   10575
+   ScaleHeight     =   7560
+   ScaleWidth      =   13635
    StartUpPosition =   3  'Windows Default
    Begin VB.CommandButton Command2 
       Caption         =   "Simpan"
@@ -107,17 +106,14 @@ Begin VB.Form TransaksiKeluar
       Top             =   960
       Width           =   2295
    End
-   Begin MSComCtl2.DTPicker DTPicker1 
+   Begin VB.PictureBox DTPicker1 
       Height          =   375
       Left            =   1920
+      ScaleHeight     =   315
+      ScaleWidth      =   2235
       TabIndex        =   0
       Top             =   360
       Width           =   2295
-      _ExtentX        =   4048
-      _ExtentY        =   661
-      _Version        =   393216
-      Format          =   106561537
-      CurrentDate     =   42618
    End
    Begin MSDataGridLib.DataGrid DataGrid2 
       Height          =   1575
@@ -186,12 +182,11 @@ Begin VB.Form TransaksiKeluar
       EndProperty
    End
    Begin VB.Label Label4 
-      Caption         =   "Label4"
-      Height          =   975
-      Left            =   6120
+      Height          =   495
+      Left            =   4800
       TabIndex        =   10
-      Top             =   360
-      Width           =   3975
+      Top             =   480
+      Width           =   5175
    End
    Begin VB.Label Label3 
       Caption         =   "Cari Material"
@@ -247,12 +242,13 @@ Attribute ctlCommand.VB_VarHelpID = -1
 Dim WithEvents CtlLabel As VB.Label
 Attribute CtlLabel.VB_VarHelpID = -1
 Dim count1 As Integer
-Dim rst As ADODB.Recordset
+Dim rst As ADODB.recordSet
+Public username As String
 
 Private Sub getData(Code As String)
     Dim DBCon As ADODB.Connection
     Dim Cmd As ADODB.Command
-    Dim Rs As ADODB.Recordset
+    Dim Rs As ADODB.recordSet
 
     'Create a connection to the database
     Set DBCon = New ADODB.Connection
@@ -268,7 +264,7 @@ Private Sub getData(Code As String)
     Cmd.CommandText = _
     "SELECT transaction.Code, material.Name, SUM( qty ) AS Balance " _
     & "FROM transaction, material " _
-    & "WHERE transaction.code = material.code and transaction.code like '%" & Code & "%'" _
+    & "WHERE transaction.code = material.code and ( transaction.condition = '2' or transaction.condition = '4') and transaction.code like '%" & Code & "%'" _
     & "GROUP BY transaction.code"
     
     
@@ -300,19 +296,85 @@ Do Until a = rst.RecordCount
 Loop
 
 If Not status Then
-    ' Add data to the Recordset
+    If DataGrid2.Columns(2).Value <= 0 Then
+    
+    Else
+        ' Add data to the Recordset
    rst.AddNew Array("Code", "Name", "Qty"), _
       Array(DataGrid2.Columns(0).Value, DataGrid2.Columns(1).Value, 0)
    ' Populate the Data in the DataGrid
    Set DataGrid1.DataSource = rst
+    End If
 End If
 
 End Sub
 
+Private Sub Command2_Click()
+    Call saveData
+End Sub
+
+Private Sub saveData()
+    Dim DBCon As ADODB.Connection
+    Dim Cmd As ADODB.Command
+    Dim Rs As ADODB.recordSet
+    Dim condition As Integer
+
+    'Create a connection to the database
+    Set DBCon = New ADODB.Connection
+    DBCon.CursorLocation = adUseClient
+    'This is a connectionstring to a local MySQL server
+    DBCon.Open "Driver={MySQL ODBC 3.51 Driver};Server=localhost;Database=MDU;User=root;Password=;Option=3;"
+
+    'Create a new command that will execute the query
+    Set Cmd = New ADODB.Command
+    Cmd.ActiveConnection = DBCon
+    Cmd.CommandType = adCmdText
+    
+        
+        Do Until a = rst.RecordCount
+        DataGrid1.Row = a
+        
+        Cmd.CommandText = "insert into transaction values (NULL, '" & username & "', '" & DataGrid1.Columns(0).Value & "', '2016-09-06', '" & DataGrid1.Columns(2).Value * -1 & "', NULL, '" & Text1.Text & "', '4', NULL, NULL, NULL)"
+        
+        'Executes the query-command and puts the result into Rs (recordset)
+        Cmd.Execute
+        a = a + 1
+    Loop
+        
+    
+    'Close your database connection
+    DBCon.Close
+
+    'Delete all references
+    Set Rs = Nothing
+    Set Cmd = Nothing
+    Set DBCon = Nothing
+
+    MsgBox "data saved", vbInformation, "Success"
+    Call getData(Text2.Text)
+    
+    Set rst = New ADODB.recordSet
+rst.CursorLocation = adUseClient
+   
+' Add columns to the Recordset
+rst.Fields.Append "Code", adVarChar, 40, adFldIsNullable
+rst.Fields.Append "Name", adVarChar, 40, adFldIsNullable
+rst.Fields.Append "Qty", adInteger
+
+' Open the Recordset
+rst.Open , , adOpenStatic, adLockBatchOptimistic
+Set DataGrid1.DataSource = rst
+   
+End Sub
+
+
+Private Sub DataGrid1_AfterUpdate()
+    Label4.Caption = Label4.Caption + "a"
+End Sub
+
+
 Private Sub Form_Load()
-' parameter of the Controls.Add to specify the container.
-   Set ctlDynamic = Controls.Add("MSComctlLib.TreeCtrl", _
-                    "myctl", TransaksiKeluar)
+
 DataGrid2.Columns.Add 1
 DataGrid2.Columns(0).Caption = "Code"
 DataGrid2.Columns(1).Caption = "Name"
@@ -320,7 +382,7 @@ DataGrid2.Columns(2).Caption = "Balance"
 
 
 
-Set rst = New ADODB.Recordset
+Set rst = New ADODB.recordSet
 rst.CursorLocation = adUseClient
    
 ' Add columns to the Recordset
@@ -336,7 +398,7 @@ End Sub
 
 Private Sub Main_Click()
     Unload Me
-    MainMenu.Show
+    mainMenu.Show
 End Sub
 
 Private Sub SignOut_Click()

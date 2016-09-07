@@ -1,5 +1,4 @@
 VERSION 5.00
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Begin VB.Form TransaksiMasuk 
    Caption         =   "Transaksi Masuk"
    ClientHeight    =   6330
@@ -10,17 +9,14 @@ Begin VB.Form TransaksiMasuk
    ScaleHeight     =   6330
    ScaleWidth      =   7170
    StartUpPosition =   3  'Windows Default
-   Begin MSComCtl2.DTPicker DTPicker2 
+   Begin VB.PictureBox DTPicker2 
       Height          =   375
       Left            =   4440
+      ScaleHeight     =   315
+      ScaleWidth      =   1875
       TabIndex        =   26
       Top             =   360
       Width           =   1935
-      _ExtentX        =   3413
-      _ExtentY        =   661
-      _Version        =   393216
-      Format          =   106561537
-      CurrentDate     =   42618
    End
    Begin VB.ComboBox Combo1 
       Height          =   415
@@ -250,7 +246,7 @@ Public username As String
 Private Sub selectMaterialName(Code As String, parameter As String)
     Dim DBCon As ADODB.Connection
     Dim Cmd As ADODB.Command
-    Dim Rs As ADODB.Recordset
+    Dim Rs As ADODB.recordSet
 
     'Create a connection to the database
     Set DBCon = New ADODB.Connection
@@ -297,7 +293,7 @@ End Sub
 Private Sub Command1_Click()
     Dim DBCon As ADODB.Connection
     Dim Cmd As ADODB.Command
-    Dim Rs As ADODB.Recordset
+    Dim Rs As ADODB.recordSet
     Dim condition As Integer
 
     'Create a connection to the database
@@ -453,7 +449,7 @@ End Sub
 Private Sub getMaterialCode()
     Dim DBCon As ADODB.Connection
     Dim Cmd As ADODB.Command
-    Dim Rs As ADODB.Recordset
+    Dim Rs As ADODB.recordSet
 
     'Create a connection to the database
     Set DBCon = New ADODB.Connection
@@ -489,7 +485,7 @@ End Sub
 
 Private Sub Main_Click()
 Unload Me
-MainMenu.Show
+mainMenu.Show
 End Sub
 
 Private Sub Qty_Change()
