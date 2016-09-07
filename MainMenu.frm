@@ -138,5 +138,8 @@ Me.Hide
 TransaksiMasuk.Show
 Unload Me
 End Sub
-
-
+Private Sub Image2_Click()
+Me.Hide
+TransaksiKeluar.Show
+Unload Me
+End Sub
