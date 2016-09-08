@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "msdatgrd.ocx"
+Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
 Begin VB.Form TransaksiMasukRpt 
    Caption         =   "Laporan Transaksi Masuk"
@@ -266,6 +266,10 @@ Cmd.CommandText = _
     
 End Sub
 
+Private Sub About_Click()
+    Aboutform.Show
+End Sub
+
 Private Sub Combo1_Click()
     Call getMonth(Combo1.Text)
     year = Combo1.Text
@@ -379,7 +383,7 @@ End Sub
 
 Private Sub Form_Unload(Cancel As Integer)
     'Close your database connection
-    DBCon.Close
+    'DBCon.Close
 
     'Delete all references
     Set Rs = Nothing

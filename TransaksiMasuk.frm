@@ -1,4 +1,5 @@
 VERSION 5.00
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Begin VB.Form TransaksiMasuk 
    Caption         =   "Transaksi Masuk"
    ClientHeight    =   5730
@@ -9,6 +10,18 @@ Begin VB.Form TransaksiMasuk
    ScaleHeight     =   5730
    ScaleWidth      =   10335
    StartUpPosition =   3  'Windows Default
+   Begin MSComCtl2.DTPicker DTPicker2 
+      Height          =   375
+      Left            =   1800
+      TabIndex        =   26
+      Top             =   360
+      Width           =   2775
+      _ExtentX        =   4895
+      _ExtentY        =   661
+      _Version        =   393216
+      Format          =   107151361
+      CurrentDate     =   42621
+   End
    Begin VB.ComboBox Combo1 
       BeginProperty Font 
          Name            =   "MS Sans Serif"
@@ -21,7 +34,7 @@ Begin VB.Form TransaksiMasuk
       EndProperty
       Height          =   360
       Left            =   1800
-      TabIndex        =   25
+      TabIndex        =   24
       Top             =   1560
       Width           =   2775
    End
@@ -37,7 +50,7 @@ Begin VB.Form TransaksiMasuk
       EndProperty
       Height          =   405
       Left            =   7320
-      TabIndex        =   24
+      TabIndex        =   23
       Top             =   3600
       Width           =   2655
    End
@@ -53,7 +66,7 @@ Begin VB.Form TransaksiMasuk
       EndProperty
       Height          =   405
       Left            =   7320
-      TabIndex        =   23
+      TabIndex        =   22
       Top             =   3120
       Width           =   2655
    End
@@ -69,7 +82,7 @@ Begin VB.Form TransaksiMasuk
       EndProperty
       Height          =   405
       Left            =   7320
-      TabIndex        =   22
+      TabIndex        =   21
       Top             =   2520
       Width           =   2655
    End
@@ -85,7 +98,7 @@ Begin VB.Form TransaksiMasuk
       EndProperty
       Height          =   405
       Left            =   7320
-      TabIndex        =   21
+      TabIndex        =   20
       Top             =   2040
       Width           =   2655
    End
@@ -101,7 +114,7 @@ Begin VB.Form TransaksiMasuk
       EndProperty
       Height          =   405
       Left            =   7320
-      TabIndex        =   16
+      TabIndex        =   15
       Top             =   1200
       Width           =   2655
    End
@@ -118,7 +131,7 @@ Begin VB.Form TransaksiMasuk
       EndProperty
       Height          =   255
       Left            =   5040
-      TabIndex        =   14
+      TabIndex        =   13
       Top             =   2880
       Width           =   2535
    End
@@ -135,7 +148,7 @@ Begin VB.Form TransaksiMasuk
       EndProperty
       Height          =   195
       Left            =   5040
-      TabIndex        =   13
+      TabIndex        =   12
       Top             =   1800
       Width           =   1935
    End
@@ -152,27 +165,9 @@ Begin VB.Form TransaksiMasuk
       EndProperty
       Height          =   495
       Left            =   5040
-      TabIndex        =   12
+      TabIndex        =   11
       Top             =   840
       Width           =   3255
-   End
-   Begin VB.PictureBox DTPicker1 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   9.75
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   375
-      Left            =   1800
-      ScaleHeight     =   315
-      ScaleWidth      =   2715
-      TabIndex        =   7
-      Top             =   360
-      Width           =   2775
    End
    Begin VB.TextBox Unit 
       BeginProperty Font 
@@ -268,7 +263,7 @@ Begin VB.Form TransaksiMasuk
       EndProperty
       Height          =   375
       Left            =   5160
-      TabIndex        =   26
+      TabIndex        =   25
       Top             =   480
       Width           =   2415
    End
@@ -285,7 +280,7 @@ Begin VB.Form TransaksiMasuk
       EndProperty
       Height          =   375
       Left            =   5400
-      TabIndex        =   20
+      TabIndex        =   19
       Top             =   3600
       Width           =   1575
    End
@@ -302,7 +297,7 @@ Begin VB.Form TransaksiMasuk
       EndProperty
       Height          =   255
       Left            =   5400
-      TabIndex        =   19
+      TabIndex        =   18
       Top             =   3240
       Width           =   1575
    End
@@ -319,7 +314,7 @@ Begin VB.Form TransaksiMasuk
       EndProperty
       Height          =   375
       Left            =   5400
-      TabIndex        =   18
+      TabIndex        =   17
       Top             =   2520
       Width           =   1335
    End
@@ -336,7 +331,7 @@ Begin VB.Form TransaksiMasuk
       EndProperty
       Height          =   255
       Left            =   5400
-      TabIndex        =   17
+      TabIndex        =   16
       Top             =   2040
       Width           =   1455
    End
@@ -353,7 +348,7 @@ Begin VB.Form TransaksiMasuk
       EndProperty
       Height          =   375
       Left            =   5400
-      TabIndex        =   15
+      TabIndex        =   14
       Top             =   1320
       Width           =   1455
    End
@@ -371,7 +366,7 @@ Begin VB.Form TransaksiMasuk
       EndProperty
       Height          =   375
       Left            =   240
-      TabIndex        =   11
+      TabIndex        =   10
       Top             =   2760
       Width           =   1335
    End
@@ -388,7 +383,7 @@ Begin VB.Form TransaksiMasuk
       EndProperty
       Height          =   495
       Left            =   240
-      TabIndex        =   10
+      TabIndex        =   9
       Top             =   2040
       Width           =   1455
    End
@@ -405,7 +400,7 @@ Begin VB.Form TransaksiMasuk
       EndProperty
       Height          =   375
       Left            =   240
-      TabIndex        =   9
+      TabIndex        =   8
       Top             =   1560
       Width           =   1455
    End
@@ -422,7 +417,7 @@ Begin VB.Form TransaksiMasuk
       EndProperty
       Height          =   375
       Left            =   240
-      TabIndex        =   8
+      TabIndex        =   7
       Top             =   960
       Width           =   1335
    End
@@ -526,6 +521,10 @@ Private Sub selectMaterialName(code As String, parameter As String)
     Set DBCon = Nothing
 End Sub
 
+Private Sub About_Click()
+Aboutform.Show
+End Sub
+
 Private Sub Combo1_Change()
     Call selectMaterialName(Combo1.Text, 1)
     Call selectMaterialName(Combo1.Text, 0)
@@ -565,18 +564,17 @@ Private Sub Command1_Click()
     'This is your actual MySQL query
     If Condition1.Value = True Then
         condition = 1
-        Cmd.CommandText = "INSERT INTO transaction VALUES (NULL, '" & username & "', '" & Combo1.Text & "', '2016-09-14'," & Qty & ",'" & TUG10.Text & "', NULL , '" & condition & "','" & GoodIssueNo.Text & "', NULL, NULL)"
+        Cmd.CommandText = "INSERT INTO transaction VALUES (NULL, '" & username & "', '" & Combo1.Text & "', '" & DTPicker2.year & "-" & DTPicker2.month & "-" & DTPicker2.Day & "'," & Qty & ",'" & TUG10.Text & "', NULL , '" & condition & "','" & GoodIssueNo.Text & "', NULL, NULL)"
     End If
     If Condition2.Value = True Then
         condition = 2
-        Cmd.CommandText = "INSERT INTO transaction VALUES (NULL, '" & username & "', '" & Combo1.Text & "', '2016-09-14'," & Qty & ",'" & TUG10.Text & "', NULL , '" & condition & "', NULL, '" & PKLGBaik.Text & "', '" & MarkBaik.Text & "')"
+        Cmd.CommandText = "INSERT INTO transaction VALUES (NULL, '" & username & "', '" & Combo1.Text & "', '" & DTPicker2.year & "-" & DTPicker2.month & "-" & DTPicker2.Day & "'," & Qty & ",'" & TUG10.Text & "', NULL , '" & condition & "', NULL, '" & PKLGBaik.Text & "', '" & MarkBaik.Text & "')"
     End If
     If Condition3.Value = True Then
         condition = 3
-        Cmd.CommandText = "INSERT INTO transaction VALUES (NULL, '" & username & "', '" & Combo1.Text & "', '2016-09-14'," & Qty & ",'" & TUG10.Text & "', NULL , '" & condition & "', NULL, '" & PKLGRusak.Text & "', '" & MarkRusak.Text & "')"
+        Cmd.CommandText = "INSERT INTO transaction VALUES (NULL, '" & username & "', '" & Combo1.Text & "', '" & DTPicker2.year & "-" & DTPicker2.month & "-" & DTPicker2.Day & "'," & Qty & ",'" & TUG10.Text & "', NULL , '" & condition & "', NULL, '" & PKLGRusak.Text & "', '" & MarkRusak.Text & "')"
     End If
 '    On Error GoTo lalala
-    
     'Executes the query-command and puts the result into Rs (recordset)
     Cmd.Execute
     'Close your database connection
@@ -594,6 +592,7 @@ Private Sub Command1_Click()
 
     MsgBox "data saved", vbInformation, "Success"
 End Sub
+
 
 Private Sub Condition1_Click()
     If Condition1.Value = True Then

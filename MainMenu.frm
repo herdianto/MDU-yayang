@@ -1,26 +1,43 @@
 VERSION 5.00
 Begin VB.Form MainMenu 
+   BorderStyle     =   3  'Fixed Dialog
    Caption         =   "Main Menu"
-   ClientHeight    =   4770
-   ClientLeft      =   120
-   ClientTop       =   450
-   ClientWidth     =   9090
+   ClientHeight    =   4755
+   ClientLeft      =   45
+   ClientTop       =   375
+   ClientWidth     =   8955
+   BeginProperty Font 
+      Name            =   "MS Sans Serif"
+      Size            =   18
+      Charset         =   0
+      Weight          =   700
+      Underline       =   0   'False
+      Italic          =   0   'False
+      Strikethrough   =   0   'False
+   EndProperty
    LinkTopic       =   "Form1"
-   ScaleHeight     =   4770
-   ScaleWidth      =   9090
+   MaxButton       =   0   'False
+   MinButton       =   0   'False
+   Picture         =   "MainMenu.frx":0000
+   ScaleHeight     =   2000
+   ScaleMode       =   0  'User
+   ScaleWidth      =   8955
+   ShowInTaskbar   =   0   'False
    StartUpPosition =   3  'Windows Default
    Begin VB.Label Label5 
       Alignment       =   2  'Center
+      BackStyle       =   0  'Transparent
       Caption         =   "Selamat Datang di Aplikasi MDU"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   18
+         Name            =   "@Microsoft YaHei UI"
+         Size            =   20.25
          Charset         =   0
-         Weight          =   400
+         Weight          =   700
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
+      ForeColor       =   &H00FFFFFF&
       Height          =   615
       Left            =   1080
       TabIndex        =   4
@@ -29,13 +46,14 @@ Begin VB.Form MainMenu
    End
    Begin VB.Image Image4 
       Height          =   1155
-      Left            =   4680
-      Picture         =   "MainMenu.frx":0000
-      Top             =   1680
-      Width           =   1155
+      Left            =   4560
+      Picture         =   "MainMenu.frx":1A6BA
+      Top             =   1920
+      Width           =   1200
    End
    Begin VB.Label Label4 
       Alignment       =   2  'Center
+      BackColor       =   &H00FFFFFF&
       Caption         =   "Laporan Pergerakan"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
@@ -46,14 +64,16 @@ Begin VB.Form MainMenu
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   495
-      Left            =   4800
+      ForeColor       =   &H00000000&
+      Height          =   615
+      Left            =   4560
       TabIndex        =   3
-      Top             =   3000
+      Top             =   3120
       Width           =   1215
    End
    Begin VB.Label Label3 
       Alignment       =   2  'Center
+      BackColor       =   &H00FFFFFF&
       Caption         =   "Laporan Persediaan"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
@@ -64,28 +84,30 @@ Begin VB.Form MainMenu
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   495
-      Left            =   6600
+      ForeColor       =   &H00000000&
+      Height          =   613
+      Left            =   6480
       TabIndex        =   2
-      Top             =   3000
-      Width           =   1335
+      Top             =   3120
+      Width           =   1230
    End
    Begin VB.Image Image3 
       Height          =   1155
-      Left            =   6600
-      Picture         =   "MainMenu.frx":0E91
-      Top             =   1680
-      Width           =   1155
+      Left            =   6480
+      Picture         =   "MainMenu.frx":1EF2E
+      Top             =   1920
+      Width           =   1230
    End
    Begin VB.Image Image2 
       Height          =   1155
-      Left            =   2880
-      Picture         =   "MainMenu.frx":1D22
-      Top             =   1680
+      Left            =   2760
+      Picture         =   "MainMenu.frx":23A0A
+      Top             =   1920
       Width           =   1155
    End
    Begin VB.Label Label2 
       Alignment       =   2  'Center
+      BackColor       =   &H00FFFFFF&
       Caption         =   "Transaksi Keluar"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
@@ -96,14 +118,16 @@ Begin VB.Form MainMenu
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   495
-      Left            =   2880
+      ForeColor       =   &H00000000&
+      Height          =   613
+      Left            =   2760
       TabIndex        =   1
-      Top             =   3000
-      Width           =   1215
+      Top             =   3120
+      Width           =   1155
    End
    Begin VB.Label Label1 
       Alignment       =   2  'Center
+      BackColor       =   &H00FFFFFF&
       Caption         =   "Transaksi Masuk"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
@@ -114,17 +138,18 @@ Begin VB.Form MainMenu
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   495
-      Left            =   960
+      ForeColor       =   &H00000000&
+      Height          =   613
+      Left            =   840
       TabIndex        =   0
-      Top             =   3000
-      Width           =   1095
+      Top             =   3120
+      Width           =   1155
    End
    Begin VB.Image Image1 
       Height          =   1155
-      Left            =   960
-      Picture         =   "MainMenu.frx":2BB3
-      Top             =   1680
+      Left            =   840
+      Picture         =   "MainMenu.frx":28016
+      Top             =   1920
       Width           =   1155
    End
 End

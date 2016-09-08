@@ -1,5 +1,6 @@
 VERSION 5.00
-Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "msdatgrd.ocx"
+Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Begin VB.Form TransaksiKeluar 
    Caption         =   "Transaksi Keluar"
    ClientHeight    =   7560
@@ -10,6 +11,18 @@ Begin VB.Form TransaksiKeluar
    ScaleHeight     =   7560
    ScaleWidth      =   14055
    StartUpPosition =   3  'Windows Default
+   Begin MSComCtl2.DTPicker DTPicker2 
+      Height          =   405
+      Left            =   2760
+      TabIndex        =   10
+      Top             =   360
+      Width           =   2295
+      _ExtentX        =   4048
+      _ExtentY        =   714
+      _Version        =   393216
+      Format          =   107151361
+      CurrentDate     =   42621
+   End
    Begin VB.CommandButton Command2 
       Caption         =   "Simpan"
       BeginProperty Font 
@@ -23,14 +36,14 @@ Begin VB.Form TransaksiKeluar
       EndProperty
       Height          =   615
       Left            =   9120
-      TabIndex        =   9
+      TabIndex        =   8
       Top             =   4200
       Width           =   1335
    End
    Begin MSDataGridLib.DataGrid DataGrid1 
       Height          =   1575
       Left            =   240
-      TabIndex        =   5
+      TabIndex        =   4
       Top             =   4320
       Width           =   8415
       _ExtentX        =   14843
@@ -106,37 +119,28 @@ Begin VB.Form TransaksiKeluar
       EndProperty
       Height          =   615
       Left            =   9000
-      TabIndex        =   7
+      TabIndex        =   6
       Top             =   2040
       Width           =   1335
    End
    Begin VB.TextBox Text2 
       Height          =   405
       Left            =   2760
-      TabIndex        =   6
+      TabIndex        =   5
       Top             =   1560
       Width           =   2295
    End
    Begin VB.TextBox Text1 
       Height          =   405
       Left            =   2760
-      TabIndex        =   3
+      TabIndex        =   2
       Top             =   960
-      Width           =   2295
-   End
-   Begin VB.PictureBox DTPicker1 
-      Height          =   375
-      Left            =   2760
-      ScaleHeight     =   315
-      ScaleWidth      =   2235
-      TabIndex        =   0
-      Top             =   480
       Width           =   2295
    End
    Begin MSDataGridLib.DataGrid DataGrid2 
       Height          =   1575
       Left            =   240
-      TabIndex        =   8
+      TabIndex        =   7
       Top             =   2160
       Width           =   8520
       _ExtentX        =   15028
@@ -202,7 +206,7 @@ Begin VB.Form TransaksiKeluar
    Begin VB.Label Label4 
       Height          =   495
       Left            =   5400
-      TabIndex        =   10
+      TabIndex        =   9
       Top             =   480
       Width           =   5175
    End
@@ -219,7 +223,7 @@ Begin VB.Form TransaksiKeluar
       EndProperty
       Height          =   255
       Left            =   240
-      TabIndex        =   4
+      TabIndex        =   3
       Top             =   1560
       Width           =   1335
    End
@@ -236,7 +240,7 @@ Begin VB.Form TransaksiKeluar
       EndProperty
       Height          =   375
       Left            =   240
-      TabIndex        =   2
+      TabIndex        =   1
       Top             =   960
       Width           =   1815
    End
@@ -253,7 +257,7 @@ Begin VB.Form TransaksiKeluar
       EndProperty
       Height          =   375
       Left            =   240
-      TabIndex        =   1
+      TabIndex        =   0
       Top             =   360
       Width           =   1575
    End
@@ -327,6 +331,10 @@ Private Sub getData(code As String)
     'Set DBCon = Nothing
 End Sub
 
+Private Sub About_Click()
+Aboutform.Show
+End Sub
+
 Private Sub Command1_Click()
 Dim status As Boolean
 Dim a As Integer
@@ -379,7 +387,7 @@ Private Sub saveData()
         Do Until a = rst.RecordCount
         DataGrid1.Row = a
         
-        Cmd.CommandText = "insert into transaction values (NULL, '" & username & "', '" & DataGrid1.Columns(0).Value & "', '2016-09-06', '" & DataGrid1.Columns(2).Value * -1 & "', NULL, '" & Text1.Text & "', '4', NULL, NULL, NULL)"
+        Cmd.CommandText = "insert into transaction values (NULL, '" & username & "', '" & DataGrid1.Columns(0).Value & "', '" & DTPicker2.year & "-" & DTPicker2.month & "-" & DTPicker2.Day & "', '" & DataGrid1.Columns(2).Value * -1 & "', NULL, '" & Text1.Text & "', '4', NULL, NULL, NULL)"
         
         'Executes the query-command and puts the result into Rs (recordset)
         Cmd.Execute
