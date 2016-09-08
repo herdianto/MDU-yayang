@@ -11,6 +11,7 @@ Form=AdminPage.frm
 Form=TransaksiKeluar.frm
 Form=TransaksiMasukRpt.frm
 Object={00025600-0000-0000-C000-000000000046}#5.2#0; Crystl32.OCX
+Form=RekapStok.frm
 IconForm="Login"
 Startup="Login"
 HelpFile=""
