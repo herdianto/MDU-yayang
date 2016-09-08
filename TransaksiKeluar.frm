@@ -1,35 +1,44 @@
 VERSION 5.00
-Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
+Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "msdatgrd.ocx"
 Begin VB.Form TransaksiKeluar 
    Caption         =   "Transaksi Keluar"
    ClientHeight    =   7560
    ClientLeft      =   225
    ClientTop       =   855
-   ClientWidth     =   13635
+   ClientWidth     =   10365
    LinkTopic       =   "Form1"
    ScaleHeight     =   7560
-   ScaleWidth      =   13635
+   ScaleWidth      =   10365
    StartUpPosition =   3  'Windows Default
    Begin VB.CommandButton Command2 
       Caption         =   "Simpan"
-      Height          =   375
-      Left            =   5880
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   615
+      Left            =   7440
       TabIndex        =   9
       Top             =   4320
-      Width           =   1095
+      Width           =   1335
    End
    Begin MSDataGridLib.DataGrid DataGrid1 
       Height          =   1575
       Left            =   240
       TabIndex        =   5
       Top             =   4320
-      Width           =   5175
-      _ExtentX        =   9128
+      Width           =   7815
+      _ExtentX        =   13785
       _ExtentY        =   2778
       _Version        =   393216
       BorderStyle     =   0
       HeadLines       =   1
-      RowHeight       =   15
+      RowHeight       =   19
       AllowDelete     =   -1  'True
       BeginProperty HeadFont {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
          Name            =   "MS Sans Serif"
@@ -42,7 +51,7 @@ Begin VB.Form TransaksiKeluar
       EndProperty
       BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
          Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Size            =   9.75
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -86,33 +95,42 @@ Begin VB.Form TransaksiKeluar
    End
    Begin VB.CommandButton Command1 
       Caption         =   "Add"
-      Height          =   375
-      Left            =   5880
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   615
+      Left            =   7440
       TabIndex        =   7
-      Top             =   2160
-      Width           =   1095
+      Top             =   2040
+      Width           =   1335
    End
    Begin VB.TextBox Text2 
-      Height          =   285
-      Left            =   1920
+      Height          =   405
+      Left            =   2760
       TabIndex        =   6
       Top             =   1560
-      Width           =   1935
+      Width           =   2295
    End
    Begin VB.TextBox Text1 
       Height          =   405
-      Left            =   1920
+      Left            =   2760
       TabIndex        =   3
       Top             =   960
       Width           =   2295
    End
    Begin VB.PictureBox DTPicker1 
       Height          =   375
-      Left            =   1920
+      Left            =   2760
       ScaleHeight     =   315
       ScaleWidth      =   2235
       TabIndex        =   0
-      Top             =   360
+      Top             =   480
       Width           =   2295
    End
    Begin MSDataGridLib.DataGrid DataGrid2 
@@ -120,13 +138,13 @@ Begin VB.Form TransaksiKeluar
       Left            =   240
       TabIndex        =   8
       Top             =   2160
-      Width           =   5175
-      _ExtentX        =   9128
+      Width           =   7680
+      _ExtentX        =   13547
       _ExtentY        =   2778
       _Version        =   393216
       BorderStyle     =   0
       HeadLines       =   1
-      RowHeight       =   15
+      RowHeight       =   19
       AllowAddNew     =   -1  'True
       BeginProperty HeadFont {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
          Name            =   "MS Sans Serif"
@@ -139,7 +157,7 @@ Begin VB.Form TransaksiKeluar
       EndProperty
       BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
          Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Size            =   9.75
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -183,13 +201,22 @@ Begin VB.Form TransaksiKeluar
    End
    Begin VB.Label Label4 
       Height          =   495
-      Left            =   4800
+      Left            =   5400
       TabIndex        =   10
       Top             =   480
       Width           =   5175
    End
    Begin VB.Label Label3 
       Caption         =   "Cari Material"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   255
       Left            =   240
       TabIndex        =   4
@@ -198,14 +225,32 @@ Begin VB.Form TransaksiKeluar
    End
    Begin VB.Label Label2 
       Caption         =   "No TUG 9"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   375
       Left            =   240
       TabIndex        =   2
       Top             =   960
-      Width           =   855
+      Width           =   1815
    End
    Begin VB.Label Label1 
       Caption         =   "Tanggal"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   375
       Left            =   240
       TabIndex        =   1
@@ -245,7 +290,7 @@ Dim count1 As Integer
 Dim rst As ADODB.Recordset
 Public username As String
 
-Private Sub getData(Code As String)
+Private Sub getData(code As String)
     Dim DBCon As ADODB.Connection
     Dim Cmd As ADODB.Command
     Dim Rs As ADODB.Recordset
@@ -264,7 +309,7 @@ Private Sub getData(Code As String)
     Cmd.CommandText = _
     "SELECT transaction.Code, material.Name, SUM( qty ) AS Balance " _
     & "FROM transaction, material " _
-    & "WHERE transaction.code = material.code and ( transaction.condition = '2' or transaction.condition = '4') and transaction.code like '%" & Code & "%'" _
+    & "WHERE transaction.code = material.code and ( transaction.condition = '2' or transaction.condition = '4') and transaction.code like '%" & code & "%'" _
     & "GROUP BY transaction.code"
     
     
@@ -394,6 +439,11 @@ rst.Fields.Append "Qty", adInteger
 rst.Open , , adOpenStatic, adLockBatchOptimistic
 Set DataGrid1.DataSource = rst
 
+    With Me
+        .Top = (Screen.Height - .Height) / 2
+        .Left = (Screen.Width - .Width) / 2
+    End With
+    
 End Sub
 
 Private Sub Main_Click()

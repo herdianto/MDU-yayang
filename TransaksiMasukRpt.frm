@@ -1,25 +1,43 @@
 VERSION 5.00
-Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
+Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "msdatgrd.ocx"
+Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
 Begin VB.Form TransaksiMasukRpt 
    Caption         =   "Laporan Transaksi Masuk"
    ClientHeight    =   7110
    ClientLeft      =   225
    ClientTop       =   855
-   ClientWidth     =   13485
+   ClientWidth     =   15660
    LinkTopic       =   "Form1"
    ScaleHeight     =   7110
-   ScaleWidth      =   13485
+   ScaleWidth      =   15660
    StartUpPosition =   3  'Windows Default
+   Begin Crystal.CrystalReport CrystalReport1 
+      Left            =   14280
+      Top             =   1200
+      _ExtentX        =   741
+      _ExtentY        =   741
+      _Version        =   348160
+      PrintFileLinesPerPage=   60
+   End
    Begin VB.CommandButton Command1 
       Caption         =   "Cetak"
-      Height          =   375
-      Left            =   10560
+      Height          =   615
+      Left            =   12120
       TabIndex        =   8
-      Top             =   5040
-      Width           =   1215
+      Top             =   5160
+      Width           =   1695
    End
    Begin VB.ComboBox Combo2 
-      Height          =   315
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   360
       Left            =   1800
       TabIndex        =   6
       Text            =   "Month"
@@ -27,7 +45,16 @@ Begin VB.Form TransaksiMasukRpt
       Width           =   1335
    End
    Begin VB.ComboBox Combo1 
-      Height          =   315
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   360
       Left            =   360
       TabIndex        =   5
       Text            =   "Year"
@@ -36,32 +63,50 @@ Begin VB.Form TransaksiMasukRpt
    End
    Begin VB.OptionButton Option2 
       Caption         =   "Descending"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   255
       Left            =   6840
       TabIndex        =   2
       Top             =   840
-      Width           =   1215
+      Width           =   1575
    End
    Begin VB.OptionButton Option1 
       Caption         =   "Ascending"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   6840
       TabIndex        =   1
       Top             =   480
-      Width           =   1215
+      Width           =   1575
    End
    Begin MSDataGridLib.DataGrid DataGrid1 
-      Height          =   3135
+      Height          =   3015
       Left            =   360
       TabIndex        =   0
       Top             =   1320
-      Width           =   12375
-      _ExtentX        =   21828
-      _ExtentY        =   5530
+      Width           =   13695
+      _ExtentX        =   24156
+      _ExtentY        =   5318
       _Version        =   393216
       BorderStyle     =   0
       HeadLines       =   1
-      RowHeight       =   15
+      RowHeight       =   19
       BeginProperty HeadFont {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
          Name            =   "MS Sans Serif"
          Size            =   8.25
@@ -73,7 +118,7 @@ Begin VB.Form TransaksiMasukRpt
       EndProperty
       BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
          Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Size            =   9.75
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -116,18 +161,17 @@ Begin VB.Form TransaksiMasukRpt
       EndProperty
    End
    Begin VB.Label Label1 
-      Caption         =   "Label1"
-      Height          =   1335
-      Left            =   2160
+      Height          =   135
+      Left            =   3120
       TabIndex        =   7
-      Top             =   4920
+      Top             =   6360
       Width           =   4935
    End
    Begin VB.Label Label3 
       Caption         =   "Filter"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
-         Size            =   9.75
+         Size            =   12
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -144,7 +188,7 @@ Begin VB.Form TransaksiMasukRpt
       Caption         =   "Sorting"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
-         Size            =   9.75
+         Size            =   12
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -211,8 +255,8 @@ Cmd.CommandText = _
     & "and extract(year from date) like '%" & year & "%' " _
     & "and extract(month from date) like '%" & month & "%' " _
     
-    Label1.Caption = Cmd.CommandText
-    Label1.BackColor = vbRed
+    'Label1.Caption = Cmd.CommandText
+    'Label1.BackColor = vbRed
     
     'Executes the query-command and puts the result into Rs (recordset)
     Set Rs = Cmd.Execute
@@ -244,8 +288,8 @@ Private Sub Command1_Click()
     & selectedRecred & " " _
     & sort
     
-    Label1.Caption = Cmd.CommandText
-    Label1.BackColor = vbRed
+    'Label1.Caption = Cmd.CommandText
+    'Label1.BackColor = vbRed
     
     'Executes the query-command and puts the result into Rs (recordset)
     Set Rs = Cmd.Execute
@@ -256,6 +300,11 @@ Private Sub Command1_Click()
     Cmd2.Execute
     Cmd.CommandText = "create view print_a as " + Cmd.CommandText
     Cmd.Execute
+    
+    CrystalReport1.ReportFileName = App.Path + "\rpt\tMasuk.rpt"
+    CrystalReport1.RetrieveDataFiles
+    CrystalReport1.WindowState = crptMaximized
+    CrystalReport1.Action = 1
 End Sub
 
 Private Sub DataGrid1_HeadClick(ByVal ColIndex As Integer)
@@ -269,7 +318,7 @@ selectedRecred = DataGrid1.Columns(ColIndex).Caption
 If selectedRecred = "name" Then
     selectedRecred = "order by m." + selectedRecred
 Else
-    selectedRecred = "order by t." + selectedRecred
+    selectedRecred = "order by " + selectedRecred
 End If
 End Sub
 
@@ -292,6 +341,11 @@ Private Sub Form_Load()
     Call getAllData
     Call getYear
     Call getMonth(Combo1.Text)
+    
+        With Me
+        .Top = (Screen.Height - .Height) / 2
+        .Left = (Screen.Width - .Width) / 2
+    End With
 End Sub
 Private Sub getYear()
     Cmd.CommandText = _
@@ -340,11 +394,19 @@ Private Sub mainMen_Click()
 End Sub
 
 Private Sub Option1_Click()
-    sort = "asc"
+    If Option1.Value = True Or Option2.Value = True Then
+        sort = "asc"
+    Else
+        sort = ""
+    End If
 End Sub
 
 Private Sub Option2_Click()
-    sort = "desc"
+    If Option1.Value = True Or Option2.Value = True Then
+        sort = "desc"
+    Else
+        sort = ""
+    End If
 End Sub
 
 Private Sub SignOut_Click()

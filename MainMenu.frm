@@ -11,10 +11,10 @@ Begin VB.Form MainMenu
    StartUpPosition =   3  'Windows Default
    Begin VB.Label Label5 
       Alignment       =   2  'Center
-      Caption         =   "Selamat Datang di ........................"
+      Caption         =   "Selamat Datang di Aplikasi MDU"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
-         Size            =   13.5
+         Size            =   18
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -41,7 +41,7 @@ Begin VB.Form MainMenu
          Name            =   "MS Sans Serif"
          Size            =   9.75
          Charset         =   0
-         Weight          =   400
+         Weight          =   700
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
@@ -50,7 +50,7 @@ Begin VB.Form MainMenu
       Left            =   4800
       TabIndex        =   3
       Top             =   3000
-      Width           =   1095
+      Width           =   1215
    End
    Begin VB.Label Label3 
       Alignment       =   2  'Center
@@ -59,16 +59,16 @@ Begin VB.Form MainMenu
          Name            =   "MS Sans Serif"
          Size            =   9.75
          Charset         =   0
-         Weight          =   400
+         Weight          =   700
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
       Height          =   495
-      Left            =   6720
+      Left            =   6600
       TabIndex        =   2
       Top             =   3000
-      Width           =   1215
+      Width           =   1335
    End
    Begin VB.Image Image3 
       Height          =   1155
@@ -91,16 +91,16 @@ Begin VB.Form MainMenu
          Name            =   "MS Sans Serif"
          Size            =   9.75
          Charset         =   0
-         Weight          =   400
+         Weight          =   700
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
       Height          =   495
-      Left            =   3000
+      Left            =   2880
       TabIndex        =   1
       Top             =   3000
-      Width           =   975
+      Width           =   1215
    End
    Begin VB.Label Label1 
       Alignment       =   2  'Center
@@ -109,16 +109,16 @@ Begin VB.Form MainMenu
          Name            =   "MS Sans Serif"
          Size            =   9.75
          Charset         =   0
-         Weight          =   400
+         Weight          =   700
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
       Height          =   495
-      Left            =   1080
+      Left            =   960
       TabIndex        =   0
       Top             =   3000
-      Width           =   975
+      Width           =   1095
    End
    Begin VB.Image Image1 
       Height          =   1155
@@ -133,6 +133,13 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Private Sub Form_Load()
+    With Me
+        .Top = (Screen.Height - .Height) / 2
+        .Left = (Screen.Width - .Width) / 2
+    End With
+End Sub
+
 Private Sub Image1_Click()
 TransaksiMasuk.Show
 Unload Me
