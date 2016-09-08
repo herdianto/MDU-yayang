@@ -5,10 +5,10 @@ Begin VB.Form TransaksiKeluar
    ClientHeight    =   7560
    ClientLeft      =   225
    ClientTop       =   855
-   ClientWidth     =   10365
+   ClientWidth     =   14055
    LinkTopic       =   "Form1"
    ScaleHeight     =   7560
-   ScaleWidth      =   10365
+   ScaleWidth      =   14055
    StartUpPosition =   3  'Windows Default
    Begin VB.CommandButton Command2 
       Caption         =   "Simpan"
@@ -22,9 +22,9 @@ Begin VB.Form TransaksiKeluar
          Strikethrough   =   0   'False
       EndProperty
       Height          =   615
-      Left            =   7440
+      Left            =   9120
       TabIndex        =   9
-      Top             =   4320
+      Top             =   4200
       Width           =   1335
    End
    Begin MSDataGridLib.DataGrid DataGrid1 
@@ -32,8 +32,8 @@ Begin VB.Form TransaksiKeluar
       Left            =   240
       TabIndex        =   5
       Top             =   4320
-      Width           =   7815
-      _ExtentX        =   13785
+      Width           =   8415
+      _ExtentX        =   14843
       _ExtentY        =   2778
       _Version        =   393216
       BorderStyle     =   0
@@ -105,7 +105,7 @@ Begin VB.Form TransaksiKeluar
          Strikethrough   =   0   'False
       EndProperty
       Height          =   615
-      Left            =   7440
+      Left            =   9000
       TabIndex        =   7
       Top             =   2040
       Width           =   1335
@@ -138,8 +138,8 @@ Begin VB.Form TransaksiKeluar
       Left            =   240
       TabIndex        =   8
       Top             =   2160
-      Width           =   7680
-      _ExtentX        =   13547
+      Width           =   8520
+      _ExtentX        =   15028
       _ExtentY        =   2778
       _Version        =   393216
       BorderStyle     =   0

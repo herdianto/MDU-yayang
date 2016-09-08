@@ -149,6 +149,11 @@ TransaksiKeluar.Show
 Unload Me
 End Sub
 
+Private Sub Image3_Click()
+RekapStok.Show
+Unload Me
+End Sub
+
 Private Sub Image4_Click()
 TransaksiMasukRpt.Show
 Unload Me

@@ -6,14 +6,14 @@ Begin VB.Form TransaksiMasukRpt
    ClientHeight    =   7110
    ClientLeft      =   225
    ClientTop       =   855
-   ClientWidth     =   15660
+   ClientWidth     =   17565
    LinkTopic       =   "Form1"
    ScaleHeight     =   7110
-   ScaleWidth      =   15660
+   ScaleWidth      =   17565
    StartUpPosition =   3  'Windows Default
    Begin Crystal.CrystalReport CrystalReport1 
-      Left            =   14280
-      Top             =   1200
+      Left            =   13680
+      Top             =   720
       _ExtentX        =   741
       _ExtentY        =   741
       _Version        =   348160
@@ -22,9 +22,9 @@ Begin VB.Form TransaksiMasukRpt
    Begin VB.CommandButton Command1 
       Caption         =   "Cetak"
       Height          =   615
-      Left            =   12120
+      Left            =   240
       TabIndex        =   8
-      Top             =   5160
+      Top             =   5040
       Width           =   1695
    End
    Begin VB.ComboBox Combo2 
@@ -100,8 +100,8 @@ Begin VB.Form TransaksiMasukRpt
       Left            =   360
       TabIndex        =   0
       Top             =   1320
-      Width           =   13695
-      _ExtentX        =   24156
+      Width           =   16455
+      _ExtentX        =   29025
       _ExtentY        =   5318
       _Version        =   393216
       BorderStyle     =   0
