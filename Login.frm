@@ -88,7 +88,7 @@ Begin VB.Form Login
    Begin VB.Label Label2 
       Alignment       =   2  'Center
       BackColor       =   &H00E0E0E0&
-      Caption         =   "MDU Management Application"
+      Caption         =   "RETURN MANAGEMENT SYSTEM"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
          Size            =   9.75
@@ -99,7 +99,7 @@ Begin VB.Form Login
          Strikethrough   =   0   'False
       EndProperty
       Height          =   255
-      Left            =   2280
+      Left            =   2160
       TabIndex        =   1
       Top             =   960
       Width           =   3495

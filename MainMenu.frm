@@ -27,7 +27,7 @@ Begin VB.Form MainMenu
    Begin VB.Label Label5 
       Alignment       =   2  'Center
       BackStyle       =   0  'Transparent
-      Caption         =   "Selamat Datang di Aplikasi MDU"
+      Caption         =   "Selamat Datang"
       BeginProperty Font 
          Name            =   "@Microsoft YaHei UI"
          Size            =   20.25

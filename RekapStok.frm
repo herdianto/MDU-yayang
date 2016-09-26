@@ -181,11 +181,21 @@ Private Sub Form_Load()
     End With
     Call getAllData("")
     
-    Combo1.AddItem ("1")
-    Combo1.AddItem ("2")
-    Combo1.AddItem ("3")
+    'Combo1.AddItem ("1")
+    'Combo1.AddItem ("2")
+    'Combo1.AddItem ("3")
+    Combo1.AddItem ("Baru")
+    Combo1.AddItem ("Baik")
+    Combo1.AddItem ("Rusak")
 End Sub
 Private Sub getAllData(kon As String)
+    If kon = "Baru" Then
+        kon = "1"
+    ElseIf kon = "Baik" Then
+        kon = "2"
+    ElseIf kon = "Rusak" Then
+        kon = "3"
+    End If
     Cmd.CommandText = _
     "select t.code, m.name, sum(t.qty) as Qty FROM transaction t, material m " _
     & "WHERE t.Condition like '%" & kon & "%' and t.Code = m.Code " _

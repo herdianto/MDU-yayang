@@ -11,6 +11,14 @@ Begin VB.Form TransaksiKeluar
    ScaleHeight     =   7560
    ScaleWidth      =   14055
    StartUpPosition =   3  'Windows Default
+   Begin VB.CommandButton Command3 
+      Caption         =   "Hapus Baris"
+      Height          =   495
+      Left            =   9120
+      TabIndex        =   11
+      Top             =   4440
+      Width           =   2295
+   End
    Begin MSComCtl2.DTPicker DTPicker2 
       Height          =   405
       Left            =   2760
@@ -20,11 +28,11 @@ Begin VB.Form TransaksiKeluar
       _ExtentX        =   4048
       _ExtentY        =   714
       _Version        =   393216
-      Format          =   107151361
+      Format          =   90243073
       CurrentDate     =   42621
    End
    Begin VB.CommandButton Command2 
-      Caption         =   "Simpan"
+      Caption         =   "Simpan Transaksi"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
          Size            =   9.75
@@ -37,8 +45,8 @@ Begin VB.Form TransaksiKeluar
       Height          =   615
       Left            =   9120
       TabIndex        =   8
-      Top             =   4200
-      Width           =   1335
+      Top             =   5280
+      Width           =   2295
    End
    Begin MSDataGridLib.DataGrid DataGrid1 
       Height          =   1575
@@ -107,7 +115,7 @@ Begin VB.Form TransaksiKeluar
       EndProperty
    End
    Begin VB.CommandButton Command1 
-      Caption         =   "Add"
+      Caption         =   "Tambah Material"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
          Size            =   9.75
@@ -117,11 +125,11 @@ Begin VB.Form TransaksiKeluar
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   615
-      Left            =   9000
+      Height          =   495
+      Left            =   9120
       TabIndex        =   6
       Top             =   2040
-      Width           =   1335
+      Width           =   2295
    End
    Begin VB.TextBox Text2 
       Height          =   405
@@ -331,7 +339,7 @@ Private Sub getData(code As String)
     'Set DBCon = Nothing
 End Sub
 
-Private Sub About_Click()
+Private Sub about_Click()
 Aboutform.Show
 End Sub
 
@@ -421,9 +429,15 @@ Set DataGrid1.DataSource = rst
 End Sub
 
 
+Private Sub Command3_Click()
+rst.Delete
+End Sub
+
 Private Sub DataGrid1_AfterUpdate()
     Label4.Caption = Label4.Caption + "a"
 End Sub
+
+
 
 
 Private Sub Form_Load()

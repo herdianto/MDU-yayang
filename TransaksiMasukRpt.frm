@@ -266,7 +266,7 @@ Cmd.CommandText = _
     
 End Sub
 
-Private Sub About_Click()
+Private Sub about_Click()
     Aboutform.Show
 End Sub
 

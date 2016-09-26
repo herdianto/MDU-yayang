@@ -10,6 +10,22 @@ Begin VB.Form TransaksiMasuk
    ScaleHeight     =   5730
    ScaleWidth      =   10335
    StartUpPosition =   3  'Windows Default
+   Begin VB.TextBox Text1 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   405
+      Left            =   7320
+      TabIndex        =   28
+      Top             =   1680
+      Width           =   2655
+   End
    Begin MSComCtl2.DTPicker DTPicker2 
       Height          =   375
       Left            =   1800
@@ -19,7 +35,7 @@ Begin VB.Form TransaksiMasuk
       _ExtentX        =   4895
       _ExtentY        =   661
       _Version        =   393216
-      Format          =   107151361
+      Format          =   90243073
       CurrentDate     =   42621
    End
    Begin VB.ComboBox Combo1 
@@ -51,7 +67,7 @@ Begin VB.Form TransaksiMasuk
       Height          =   405
       Left            =   7320
       TabIndex        =   23
-      Top             =   3600
+      Top             =   4080
       Width           =   2655
    End
    Begin VB.TextBox PKLGRusak 
@@ -67,7 +83,7 @@ Begin VB.Form TransaksiMasuk
       Height          =   405
       Left            =   7320
       TabIndex        =   22
-      Top             =   3120
+      Top             =   3600
       Width           =   2655
    End
    Begin VB.TextBox MarkBaik 
@@ -83,7 +99,7 @@ Begin VB.Form TransaksiMasuk
       Height          =   405
       Left            =   7320
       TabIndex        =   21
-      Top             =   2520
+      Top             =   3000
       Width           =   2655
    End
    Begin VB.TextBox PKLGBaik 
@@ -99,7 +115,7 @@ Begin VB.Form TransaksiMasuk
       Height          =   405
       Left            =   7320
       TabIndex        =   20
-      Top             =   2040
+      Top             =   2520
       Width           =   2655
    End
    Begin VB.TextBox GoodIssueNo 
@@ -132,7 +148,7 @@ Begin VB.Form TransaksiMasuk
       Height          =   255
       Left            =   5040
       TabIndex        =   13
-      Top             =   2880
+      Top             =   3360
       Width           =   2535
    End
    Begin VB.OptionButton Condition2 
@@ -149,7 +165,7 @@ Begin VB.Form TransaksiMasuk
       Height          =   195
       Left            =   5040
       TabIndex        =   12
-      Top             =   1800
+      Top             =   2280
       Width           =   1935
    End
    Begin VB.OptionButton Condition1 
@@ -247,7 +263,24 @@ Begin VB.Form TransaksiMasuk
       Height          =   615
       Left            =   8400
       TabIndex        =   0
-      Top             =   4440
+      Top             =   4920
+      Width           =   1575
+   End
+   Begin VB.Label Label13 
+      Caption         =   "Keterangan"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   375
+      Left            =   5400
+      TabIndex        =   27
+      Top             =   1680
       Width           =   1575
    End
    Begin VB.Label Label12 
@@ -281,7 +314,7 @@ Begin VB.Form TransaksiMasuk
       Height          =   375
       Left            =   5400
       TabIndex        =   19
-      Top             =   3600
+      Top             =   4080
       Width           =   1575
    End
    Begin VB.Label Label10 
@@ -298,7 +331,7 @@ Begin VB.Form TransaksiMasuk
       Height          =   255
       Left            =   5400
       TabIndex        =   18
-      Top             =   3240
+      Top             =   3720
       Width           =   1575
    End
    Begin VB.Label Label9 
@@ -315,7 +348,7 @@ Begin VB.Form TransaksiMasuk
       Height          =   375
       Left            =   5400
       TabIndex        =   17
-      Top             =   2520
+      Top             =   3000
       Width           =   1335
    End
    Begin VB.Label Label8 
@@ -332,7 +365,7 @@ Begin VB.Form TransaksiMasuk
       Height          =   255
       Left            =   5400
       TabIndex        =   16
-      Top             =   2040
+      Top             =   2520
       Width           =   1455
    End
    Begin VB.Label Label7 
@@ -521,8 +554,8 @@ Private Sub selectMaterialName(code As String, parameter As String)
     Set DBCon = Nothing
 End Sub
 
-Private Sub About_Click()
-Aboutform.Show
+Private Sub about_Click()
+    Aboutform.Show
 End Sub
 
 Private Sub Combo1_Change()
@@ -564,7 +597,7 @@ Private Sub Command1_Click()
     'This is your actual MySQL query
     If Condition1.Value = True Then
         condition = 1
-        Cmd.CommandText = "INSERT INTO transaction VALUES (NULL, '" & username & "', '" & Combo1.Text & "', '" & DTPicker2.year & "-" & DTPicker2.month & "-" & DTPicker2.Day & "'," & Qty & ",'" & TUG10.Text & "', NULL , '" & condition & "','" & GoodIssueNo.Text & "', NULL, NULL)"
+        Cmd.CommandText = "INSERT INTO transaction VALUES (NULL, '" & username & "', '" & Combo1.Text & "', '" & DTPicker2.year & "-" & DTPicker2.month & "-" & DTPicker2.Day & "'," & Qty & ",'" & TUG10.Text & "', NULL , '" & condition & "','" & GoodIssueNo.Text & "', NULL, '" & Text1.Text & "')"
     End If
     If Condition2.Value = True Then
         condition = 2
@@ -575,6 +608,7 @@ Private Sub Command1_Click()
         Cmd.CommandText = "INSERT INTO transaction VALUES (NULL, '" & username & "', '" & Combo1.Text & "', '" & DTPicker2.year & "-" & DTPicker2.month & "-" & DTPicker2.Day & "'," & Qty & ",'" & TUG10.Text & "', NULL , '" & condition & "', NULL, '" & PKLGRusak.Text & "', '" & MarkRusak.Text & "')"
     End If
 '    On Error GoTo lalala
+    
     'Executes the query-command and puts the result into Rs (recordset)
     Cmd.Execute
     'Close your database connection
@@ -593,11 +627,13 @@ Private Sub Command1_Click()
     MsgBox "data saved", vbInformation, "Success"
 End Sub
 
-
 Private Sub Condition1_Click()
     If Condition1.Value = True Then
         GoodIssueNo.Enabled = True
         GoodIssueNo.BackColor = &H80000005
+        
+        Text1.Enabled = True
+        Text1.BackColor = &H80000005
         
         PKLGBaik.Enabled = False
         PKLGBaik.BackColor = &H8000000F
@@ -620,10 +656,9 @@ Private Sub Condition2_Click()
         MarkBaik.Enabled = True
         PKLGBaik.BackColor = &H80000005
         MarkBaik.BackColor = &H80000005
-    
-        GoodIssueNo.Enabled = False
-        PKLGRusak.Enabled = False
-        MarkRusak.Enabled = False
+        
+        Text1.Enabled = False
+        Text1.BackColor = &H8000000F
         
         GoodIssueNo.Enabled = False
         GoodIssueNo.BackColor = &H8000000F
@@ -651,6 +686,9 @@ Private Sub Condition3_Click()
         
         GoodIssueNo.Enabled = False
         GoodIssueNo.BackColor = &H8000000F
+        
+        Text1.Enabled = False
+        Text1.BackColor = &H8000000F
                 
     End If
 End Sub
@@ -667,10 +705,8 @@ With Me
 End With
 
 GoodIssueNo.Enabled = False
-PKLGBaik.Enabled = False
-PKLGRusak.Enabled = False
-MarkBaik.Enabled = False
-MarkRusak.Enabled = False
+Text1.Enabled = False
+Text1.BackColor = &H8000000F
 
 GoodIssueNo.Enabled = False
 GoodIssueNo.BackColor = &H8000000F
@@ -746,3 +782,4 @@ Private Sub Qty_Change()
     Qty.Text = CStr(numval)
   End If
 End Sub
+
