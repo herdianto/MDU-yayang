@@ -2,4 +2,4 @@ Line 112: Class MSComctlLib.TabStrip of control TabStrip1 was not a loaded contr
 Line 118: The property name _ExtentX in TabStrip1 is invalid.
 Line 119: The property name _ExtentY in TabStrip1 is invalid.
 Line 120: The property name _Version in TabStrip1 is invalid.
-Line 139: The property name Tabs in TabStrip1 is invalid.
+Line 139: The property name Tabs in TabStrip1 is invalid. 
